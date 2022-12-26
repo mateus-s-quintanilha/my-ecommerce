@@ -52,6 +52,12 @@ hr {
     width: 100%;
     padding-top: 2rem;
     padding-bottom: .8rem;
+
+    // d-flex flex-row justify-content-around align-items-center
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .product img{
@@ -101,6 +107,11 @@ hr {
     width: 20%;
 }
 
+#price span {
+    font-size: 1rem; 
+    padding-right: .5rem
+}
+
 .product-sub {
     padding-bottom: 1rem;   
     width: 100%;
@@ -134,11 +145,12 @@ hr {
 }
 
 .values-item {
-    width: 50%;
+    width: 60%;
     padding-right: 4rem;
     // padding-right: 3rem;
     padding-top: .8rem;
     padding-left: 1rem;
+    white-space: nowrap;
 }
 
 .values-item:nth-child(2) {
@@ -183,4 +195,122 @@ hr {
     padding: 1rem;
     font-size: 1rem;
     font-weight: 700;
+}
+
+
+@media (max-width: 768px) {
+
+    .increase-or-decrease-btn {
+        width: 90px;
+        padding: .3rem;
+        border: 1px solid rgba(128, 128, 128, 0.555);
+        border-radius: .4rem;
+        margin-right: .5rem;
+    }
+
+
+    #price {
+        font-size: 1.0rem;
+        font-weight: 700;
+        width: 20%;
+    }
+
+    #price span {
+        font-size: .8rem; 
+        padding-right: .3rem
+    }
+
+    #product-title {
+        font-size: .8rem;
+    }
+
+    .product-sub-item {
+        font-size: .6rem;
+    }
+
+    .sub-links {
+        width: 70%;
+    }
+    
+    .sub-stock {
+        font-size: .85rem;
+    }
+
+    .product img{
+        max-width: 100px;
+        height: auto;
+    }
+
+    .values-item {
+        width: 75%;
+        font-size: 1.1rem;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    #product-title {
+        font-size: .7rem;
+    }
+
+    .increase-or-decrease-btn {
+        width: 80px;
+        padding: .2rem;
+        margin-right: .3rem;
+    }
+    #price {
+        font-size: .9rem;
+    }
+
+    .product img{
+        max-width: 80px;
+        height: auto;
+    }
+
+    .line-below {
+        width: 4rem;
+    }
+
+    .values-item {
+        width: 80%;
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .product img{
+        max-width: 50px;
+        height: auto;
+    }
+
+    .increase-or-decrease-btn {
+        width: 70px;
+        padding: .2rem;
+        margin-right: .4rem;
+
+        #decrease-btn, #increase-btn {
+            font-size: 1rem;
+        }
+    }
+
+    #price {
+        font-size: .7rem;
+    }
+
+    #price span {
+        font-size: .7rem; 
+        padding-right: .2rem
+    }
+
+    .sub-stock {
+        font-size: .7rem;
+    }
+    #product-title {
+        font-size: .6rem;
+    }
+
+    .product-sub-item {
+        font-size: .45rem;
+    }
 }
