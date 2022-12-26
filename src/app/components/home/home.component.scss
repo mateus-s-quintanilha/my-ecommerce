@@ -193,4 +193,10 @@ hr {
     .section-categories h3, .section-best-sellers h3, .section-see-all h3 {
         font-size: 2rem;
     }
+
+    .picsum-img-wrapper img {
+        width: 100%;
+        // height: auto;
+        height: 35vh;
+    }
 }

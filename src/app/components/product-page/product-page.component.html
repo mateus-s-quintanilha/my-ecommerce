@@ -1,6 +1,7 @@
 <app-header></app-header>
 <div class="container">
-    <div class="content-wrapper d-flex flex-row justify-content-between">
+    <!-- <div class="content-wrapper d-flex flex-row justify-content-between"> -->
+    <div class="content-wrapper">
         <div class="product-image d-flex justify-content-center align-items-center">
             <img src="{{product!.image}}" alt="" srcset="">
         </div>
@@ -15,7 +16,6 @@
             </div>
             <div class="info-content d-flex flex-column justify-content-evenly">
                 <div id="product-price">
-                    <!-- <span class="align-middle" id="currency">USD</span> {{product!.price}} -->
                     <span class="align-middle" id="currency">USD</span> {{productPrice!}}
                 </div>
                 <div id="product-rate">
@@ -74,7 +74,7 @@
 
         <owl-carousel-o *ngIf="similarProducts" class="carousel-owl" [options]="customOptions">
           <ng-template carouselSlide *ngFor="let prod of similarProducts">
-            <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template>
+            <app-card-template [productOnCard]="prod"></app-card-template>
           </ng-template>  
         </owl-carousel-o>
    

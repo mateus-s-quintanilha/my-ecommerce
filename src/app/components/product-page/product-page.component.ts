@@ -43,6 +43,31 @@ export class ProductPageComponent implements OnInit {
   ) { }
 
 
+  // customOptions: OwlOptions = {
+  //   loop: true,
+  //   mouseDrag: true,
+  //   touchDrag: true,
+  //   pullDrag: false,
+  //   dots: false,
+  //   navSpeed: 800,
+  //   // navText: [`<i class='icon-chevron-left icon-white'><</i>`, `<fa-icon icon="${this.faArrowCircleLeft}"><fa-icon>`],
+  //   navText: ['<span class="fas fa-chevron-left fa-2x"></span>','<span class="fas fa-chevron-right fa-2x"></span>'],
+  //   responsive: {
+  //     0: {
+  //       items: 1
+  //     },
+  //     400: {
+  //       items: 2
+  //     },
+  //     740: {
+  //       items: 3
+  //     },
+  //     940: {
+  //       items: 3
+  //     }
+  //   },
+  //   nav: true
+  // }
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -56,9 +81,14 @@ export class ProductPageComponent implements OnInit {
       0: {
         items: 1
       },
-      400: {
-        items: 2
+      // 400: {
+      //   items: 2
+      // },
+
+      570 : {
+        items: 1
       },
+
       740: {
         items: 3
       },
