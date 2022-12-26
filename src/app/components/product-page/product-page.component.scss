@@ -1,0 +1,181 @@
+.content-wrapper {
+    width: 100%;
+    padding-bottom: 3rem;
+}
+
+.container {
+    background-color: #fff;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    // height: 100vh;
+    height: auto;
+}
+
+.product-image {
+    width: 45%;
+}
+
+.product-image img {
+    // height: 60%; 
+    // width: auto;
+    height: auto;
+    width: 85%;
+    max-height: 90vh;
+}
+
+
+#info-title{
+    font-size: 1.5rem;
+    text-align: center;
+    // font-family: 'Merriweather', serif;
+    font-weight: 700;
+    padding-top: .6rem;
+    // padding-bottom: 1rem;
+}
+
+#sup-title {
+    font-size: .8rem;
+    opacity: .8;
+    // padding-bottom: .6rem;
+}
+
+.product-info {
+    border: 1px solid rgba(128, 128, 128, 0.555);
+    padding: 1rem;
+    border-radius: .4rem;
+    width: 36%;
+    font-family: 'Merriweather', serif;
+    // height: 90vh;
+}
+
+.info-content {
+    width: 100%;
+    height: 80%;
+}
+
+#product-price {
+    font-size: 2rem;
+    font-weight: 550;
+    color: #2a8703;
+    // font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#currency {
+    font-size: 1rem;
+
+}
+
+#product-rate {
+    // padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+fa-icon {
+    font-size: 1.2rem;
+}
+
+#rate-index {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: .6rem;
+    font-size: .9rem;
+}
+
+
+.btn {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.product-general-info {
+    padding-top: 3rem;
+    width: 100%;
+    font-family: 'Merriweather', serif;
+    padding-bottom: 2rem;
+}
+
+
+.general-info-header {
+    // width: 60%;
+}
+
+.general-info-title-wrapper {
+    position: relative;
+}
+
+#general-info-title  {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+
+#general-info-product-title {
+    width: 60%;
+    font-size: 1.2rem;
+    padding-top: 2rem;
+    line-height: 28px;
+}
+
+.line-below {
+    position: absolute;
+    width: 3rem;
+    height: 5px;
+    background-color: rgb(35,159,115);
+    left: 50%;
+    top: 85%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.general-info-content {
+    padding-top: 2rem;
+    margin-left: 1rem;
+}
+
+.info-content-section {
+    padding-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;    
+    font-size: 1rem;
+    padding-bottom: .4rem;
+}
+
+
+.section-p {
+    font-family: 'Merriweather', serif;  
+    font-size: .9rem;
+    opacity: .8;
+    max-width: 60%;
+}
+
+.see-also {
+    padding-top: 3rem;
+    font-family: 'Merriweather', serif;
+}
+
+.see-also-header {
+    padding-bottom: 3rem;
+}
+
+#see-also-title {
+    font-size: 1.7rem;
+    font-weight: 600; 
+}
+
+
+.see-also-title-wrapper {
+    position: relative;
+}

@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: rgb(243,244,246);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.see-also .owl-prev, .see-also .owl-next,
+.main-categories-content .owl-prev, .main-categories-content .owl-next,
+.all-categories-content .owl-prev, .all-categories-content .owl-next  {
+    // background-color: rgba(138, 137, 137, 0.700) !important;
+    background-color: rgba(138, 137, 137, 0.39) !important;
+    color: #222 !important;
+    border-radius: 50% !important;
+    padding: 1rem 1.4rem !important;
+    position: absolute;
+    top: 50%;
+}
+
+.see-also .owl-prev:hover, .see-also .owl-next:hover,
+.main-categories-content .owl-prev:hover , .main-categories-content .owl-next:hover,
+.all-categories-content .owl-prev:hover, .all-categories-content .owl-next:hover {
+    background-color: rgb(33,37,41) !important;
+    color: #fff !important;
+    transition: .5s !important;
+}
+
+
+
+
+.carousel-owl {
+    width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+
+.owl-item {
+    display: flex !important;
+    // flex-direction: row !important;
+    justify-content: center !important;
+    // width: 100% !important;
+    align-items: center !important;
+}
+
+
+.see-also .owl-prev,
+.main-categories-content .owl-prev,
+.all-categories-content .owl-prev {
+    left: 0;
+    // left: -8px;
+    transform: translate(-50%, -50%);
+}
+
+.see-also .owl-next,
+.main-categories-content .owl-next,
+.all-categories-content .owl-next {
+    // right: 0;
+    right: -63px;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 570px) {
+
+    .see-also .owl-prev, .see-also .owl-next,
+    .main-categories-content .owl-prev, .main-categories-content .owl-next,
+    .all-categories-content .owl-prev, .all-categories-content .owl-next  {
+        top: 38%;
+    }
+
+    .see-also .owl-next,
+    .main-categories-content .owl-next,
+    .all-categories-content .owl-next {
+        right: -48px;
+    }
+       
+    .see-also .owl-prev,
+    .main-categories-content .owl-prev,
+    .all-categories-content .owl-prev {
+        left: 15px;
+    }
+
+}
+
+

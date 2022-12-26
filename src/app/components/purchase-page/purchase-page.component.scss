@@ -1,0 +1,112 @@
+
+.navbar {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+
+.nav-item {
+    padding-right: 1rem;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    padding-left: 2rem;
+}
+
+.container {
+    font-family: 'Merriweather', serif;
+    padding-bottom: 2rem;
+}
+
+.info-address, .info-product {
+    padding-top: 3rem;
+}
+
+
+.info-address {
+    width: 65%;
+}
+
+.address-header {
+    position: relative;
+}
+
+.address-content {
+    padding-top: 1.5rem;
+}
+
+.info-product {
+    width: 35%;
+    background-color: rgba(255, 255, 255, 0.664);
+}
+
+#searchingField {
+    opacity: .7;
+    background-color: rgba(128, 128, 128, 0.39);
+    content: attr(div);
+}
+
+
+.spinner {
+    position: absolute;
+    top: 70%;
+    left: 25%;
+
+    display: none;
+    border: 8px solid rgba(0, 0, 0, .1);
+    border-left-color: #22a6b3;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.line-below {
+    position: absolute;
+    width: 5rem;
+    height: 5px;
+    background-color: rgb(35,159,115);
+    left: 9%;
+    top: 100%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+#zip-code-alert {
+    display: none;
+}
+
+.info-product-header {
+    width: 90%;
+    padding-bottom: .3rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+
+.info-product-header h3{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.section-content-1 {
+    width: 90%;
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+
+.section-content-2 {
+    width: 90%;
+    font-size: 1rem;
+    padding-top: 1rem;
+}

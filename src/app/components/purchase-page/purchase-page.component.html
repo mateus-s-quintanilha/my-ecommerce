@@ -1,0 +1,154 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Store<span style="font-weight: 700;"> <span style="color: rgb(254,231,18);">M</span><span style="color: rgb(35,159,115);">Q</span></span></a>
+    </div>
+</nav> 
+<div class="container d-flex flex-row">
+    <div class="info-address">
+        <div class="address-header">
+            <h2>Address</h2>
+            <span class="line-below"></span>
+        </div>
+        <div class="address-content">
+            <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="form-row">
+                <div class="form-group col-md-10">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" name="name" [(ngModel)]="userData.name" placeholder="Name" required #name="ngModel">
+                    <div *ngIf="!name.valid && name.touched" class="alert alert-danger">
+                        <strong>Name</strong> is required.
+                    </div>
+                </div>
+                <br>
+                <div class="form-group col-md-10">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel">
+                    <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+                        <strong>E-mail</strong> is required.
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="label col-md-10 d-flex justify-content-center align-items-center">
+                    Where are you located?
+                </div>
+                <br>
+                <div class="form-group col-md-10 d-flex justify-content-evenly">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="usa" name="location" [(ngModel)]="userData.location" #usa="ngModel" value="usa">
+                        <label class="form-check-label" for="usa">U.S.A.</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="br" name="location" [(ngModel)]="userData.location" #br="ngModel" value="br">
+                        <label class="form-check-label" for="br">Brazil</label>
+                    </div>
+                </div>
+
+                <div *ngIf="userData.location == 'usa' ">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="zipCode">Zip Code</label>
+                            <input (blur)="getUSAZip(zip.value, form)" type="text" id="zip" class="form-control" name="zip" [(ngModel)]="userData.zip" placeholder="Zip Code" required #zip="ngModel">
+                            <div id="zip-code-alert" class="alert alert-danger">
+                                <strong>Zip code</strong> is required.
+                            </div>
+                        </div>
+    
+                        <div class="form-group col-md-3">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userData.city" placeholder="City" disabled #city="ngModel">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="state">State</label>
+                            <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userData.state" placeholder="State" disabled #state="ngModel">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="str">Street</label>
+                            <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userData.str" placeholder="Street" required #str="ngModel">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="num">Number</label>
+                            <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userData.num" placeholder="Number" required #num="ngModel">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="userData.location == 'br' ">
+                    <div class="row"> 
+                        <div class="form-group col-md-4">
+                            <label for="zipCode">Zip Code (CEP)</label>
+                            <input (blur)="getBrazilZip(zip.value, form)" type="text" id="zip" class="form-control" name="zip" [(ngModel)]="userData.zip" placeholder="Zip Code (CEP)" required #zip="ngModel">
+                            <div id="zip-code-alert" class="alert alert-danger">
+                                <strong>Zip code</strong> is required.
+                            </div>
+                        </div>
+    
+                        <div class="form-group col-md-3">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userData.city" placeholder="City" disabled #city="ngModel">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="state">State</label>
+                            <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userData.state" placeholder="State" disabled #state="ngModel">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+                            <label for="str">Street</label>
+                            <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userData.str" placeholder="Street" disabled #str="ngModel">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="num">Number</label>
+                            <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userData.num" placeholder="Number" required #num="ngModel">
+                        </div>
+                    </div>
+
+                </div>
+                <br><br>
+                <div class="row">
+                    <button type="submit" style="padding-top: .6rem; padding-bottom: .6rem; font-weight: 700; letter-spacing: 1px;" class="btn btn-dark col-md-10 rounded-pill">
+                        Proceed
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="info-product">
+        <div class="container">
+            <div class="info-product-header">
+                <h3>
+                    Purchase Summary
+                </h3>
+            </div>
+            <div class="info-product-content">
+                <div class="section-content-1 d-flex flex-row justify-content-between">
+                    <div id="section-1-products">
+                        Products ({{totalProducts}})
+                    </div>
+                    <div id="section-1-value">
+                        {{totalValue ? totalValue : "0.00"}}
+                    </div>
+                </div>
+                <div class="section-content-2 d-flex flex-row justify-content-between">
+                    <div id="section-2-total">
+                        Total with Shipping 
+                    </div>
+                    <div id="section-2-value">
+                        {{totalValue ? totalValue : "0.00"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spinner">
+
+    </div>
+</div>

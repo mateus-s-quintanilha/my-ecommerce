@@ -1,0 +1,83 @@
+<app-header></app-header>
+<div class="container">
+    <div class="content-wrapper d-flex flex-row justify-content-between">
+        <div class="product-image d-flex justify-content-center align-items-center">
+            <img src="{{product!.image}}" alt="" srcset="">
+        </div>
+        <div class="product-info d-flex flex-column">
+            <div class="info-header">
+                <div id="sup-title">
+                    New | {{product!.rating.count}} selled.
+                </div>
+                <h3 id="info-title">
+                    {{product!.title}}
+                </h3>
+            </div>
+            <div class="info-content d-flex flex-column justify-content-evenly">
+                <div id="product-price">
+                    <!-- <span class="align-middle" id="currency">USD</span> {{product!.price}} -->
+                    <span class="align-middle" id="currency">USD</span> {{productPrice!}}
+                </div>
+                <div id="product-rate">
+                    <fa-icon id="1st-star" [icon]="starFor1"></fa-icon>
+                    <fa-icon id="2nd-star" [icon]="starFor2"></fa-icon>
+                    <fa-icon id="3rd-star" [icon]="starFor3"></fa-icon>
+                    <fa-icon id="4th-star" [icon]="starFor4"></fa-icon>
+                    <fa-icon id="5th-star" [icon]="starFor5"></fa-icon>
+
+                    <span id="rate-index">({{productRate}}) | {{reviews!}} reviews</span>
+                </div>
+                <div class="buttons">
+                    <div class="d-grid gap-2 col-8 mx-auto">
+                        <button class="btn btn-dark rounded-pill" type="button">Buy It Now</button>
+                        <button class="btn btn-primary rounded-pill" type="button">Add to Cart</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="product-general-info d-flex flex-column">
+        <div class="general-info-header d-flex flex-column justify-content-center align-items-center">
+            <div class="general-info-title-wrapper">
+                <h3 id="general-info-title">About this item</h3>
+                <span class="line-below"></span>
+            </div>
+            <h4 id="general-info-product-title" class="text-center">
+                {{product!.title}}
+            </h4>
+        </div>
+        <div class="general-info-content">
+            <div class="info-content-section">
+                <h5 class="section-title">Category</h5>
+                <p class="section-p"> 
+                    {{product!.category}}.
+                </p>
+            </div>
+            <div class="info-content-section">
+                <h5 class="section-title">Description</h5>
+                <p class="section-p">
+                    {{product!.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="see-also d-flex flex-column">
+        <div class="see-also-header d-flex flex-column justify-content-center align-items-center">
+            <div class="see-also-title-wrapper">
+                <h3 id="see-also-title">See Also</h3>
+                <span class="line-below"></span>
+            </div>
+        </div>
+
+        <owl-carousel-o *ngIf="similarProducts" class="carousel-owl" [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let prod of similarProducts">
+            <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template>
+          </ng-template>  
+        </owl-carousel-o>
+   
+    </div>
+
+</div>

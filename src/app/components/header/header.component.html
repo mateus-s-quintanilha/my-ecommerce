@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Store<span style="font-weight: 700;"> <span style="color: rgb(254,231,18);">M</span><span style="color: rgb(35,159,115);">Q</span></span></a>
+      <form style="width: 50%;" class="d-flex justify-content-center">
+        <input autocomplete="off" class="form-control me-2" name="searchTerm" [(ngModel)]="searchTerm" type="search" placeholder="What are you looking for..." aria-label="Search">
+        <!-- list="dataList" -->
+        <!-- <datalist id="dataList">
+          <option>
+            DarkBlue
+          </option>
+          <option>
+            DarkGreen
+          </option>
+          <option>
+            DarkOrange
+          </option>
+        </datalist> -->
+        <button class="btn btn-outline-success" (click)="submitQuery()" type="submit">
+            <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </form>
+      <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div style="max-width: 34%;" class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/categories">Categories</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link">
+                <fa-icon style="margin-right: .2rem; vertical-align: center;" [icon]="faUser"></fa-icon>
+                LogIn
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a id="cartIconlink" routerLink="/cart" class="nav-link cart-icon">
+              <span style="display: none;">cart</span>
+              <fa-icon [icon]="faShoppingCart"></fa-icon>
+              <div *ngIf="itemsInCard >= 1" class="cart-counter">
+                  {{ itemsInCard! }}
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav> 

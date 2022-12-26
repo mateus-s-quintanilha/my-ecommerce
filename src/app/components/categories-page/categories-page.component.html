@@ -1,0 +1,284 @@
+<app-header></app-header>
+<div class="container">
+    <div class="categories-page-header d-flex justify-content-center align-items-center">
+        <h2>Categories</h2>
+        <span class="line-below"></span>
+    </div>
+    <div class="categories-page-content">
+        <div class="section-main-categories">
+            <div class="main-categories-header">
+                <h3>Main Categories</h3>
+            </div>
+
+            <div class="main-categories-1">
+                <div class="categories-title">
+                    <h4>Eletronics</h4>
+                </div>
+                <div class="main-categories-content">
+                    <owl-carousel-o *ngIf="eletronicProds" class="carousel-owl" [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let prod of eletronicProds">
+                            <!-- <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template> -->
+                            <app-card-template [productOnCard]="prod"></app-card-template>
+                        </ng-template>  
+                    </owl-carousel-o>
+
+                    <div style="width: 100%;" class="row start-displaying justify-content-around align-items-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-categories-2">
+                <div class="categories-title">
+                    <h4>Men's Clothing</h4>
+                </div>
+                <div class="main-categories-content">
+                    <owl-carousel-o *ngIf="mensClothingProds" class="carousel-owl" [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let prod of mensClothingProds">
+                            <!-- <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template> -->
+                            <app-card-template [productOnCard]="prod"></app-card-template>
+                        </ng-template>  
+                    </owl-carousel-o>
+
+                    <div style="width: 100%;" class="row start-displaying justify-content-around align-items-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-categories-3">
+                <div class="categories-title">
+                    <h4>Women's Clothing</h4>
+                </div>
+                <div class="main-categories-content">
+                    <owl-carousel-o *ngIf="womensClothingProds" class="carousel-owl" [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let prod of womensClothingProds">
+                            <!-- <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template> -->
+                            <app-card-template [productOnCard]="prod"></app-card-template>
+                        </ng-template>  
+                    </owl-carousel-o>
+
+                    <div style="width: 100%;" class="row start-displaying justify-content-around align-items-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-categories-4"> 
+                <div class="categories-title">
+                    <h4>Jewelery & Acessories</h4>
+                </div>
+                <div class="main-categories-content">
+                    <owl-carousel-o *ngIf="jeweleryProds" class="carousel-owl" [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let prod of jeweleryProds">
+                            <!-- <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template> -->
+                            <app-card-template [productOnCard]="prod"></app-card-template>
+                        </ng-template>  
+                    </owl-carousel-o>
+                    <div style="width: 100%;" class="row start-displaying justify-content-around align-items-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-categories-5"> 
+                <div class="categories-title">
+                    <h4>Prices Under US $30</h4>
+                </div>
+                <div class="main-categories-content">
+                    <owl-carousel-o *ngIf="under30Prods" class="carousel-owl" [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let prod of under30Prods">
+                            <!-- <app-card-template style="width: 300px;" [productOnCard]="prod"></app-card-template> -->
+                            <app-card-template [productOnCard]="prod"></app-card-template>
+                        </ng-template>  
+                    </owl-carousel-o>
+                    <div style="width: 100%;" class="row start-displaying justify-content-around align-items-center">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <div class="spinner"></div>
+                                    <p class="card-text"></p>
+                                    <div class="price"></div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="section-all-categories">
+            <div class="all-categories-header">
+                <h3>All Categories</h3>
+            </div>
+            <div class="all-categories-content">
+                <owl-carousel-o class="carousel-owl" [options]="customOptionsCategories">
+                    <ng-template carouselSlide>
+                        <div routerLink="/categories/electronics" class="category d-flex flex-column justify-content-center align-items-center">
+                            <img src="https://i.ebayimg.com/images/g/XqUAAOSwYXFjgOCq/s-l200.webp" alt="" srcset="">
+                            <span class="category-description">Eletronics</span>
+                        </div>
+                    </ng-template>  
+                    <ng-template carouselSlide>
+                        <div id="category-disabled" class="category d-flex flex-column justify-content-center align-items-center">
+                            <img src="https://i.ebayimg.com/images/g/2RAAAOSwxXljPIHd/s-l200.webp" alt="" srcset="">
+                            <span class="category-description">Action Figures</span>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div id="category-disabled" class="category d-flex flex-column justify-content-center align-items-center">
+                            <img src="https://i.ebayimg.com/images/g/t1AAAOSw7aBjPIHp/s-l200.webp" alt="" srcset="">
+                            <span class="category-description">Home</span>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div routerLink="/categories/jewelery" class="category d-flex flex-column justify-content-center align-items-center">
+                            <img src="https://i.ebayimg.com/images/g/KTwAAOSwh9pjPIH0/s-l200.webp" alt="" srcset="">
+                            <span class="category-description">Jewelery & Acessories</span>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div routerLink="/categories/under-30-dollars" class="category d-flex flex-column justify-content-center align-items-center">
+                            <img src="https://i.ebayimg.com/images/g/Zf4AAOSw6~FjPIII/s-l200.webp" alt="" srcset="">
+                            <span class="category-description">Under US $30</span>
+                        </div>
+                    </ng-template>  
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</div>
+

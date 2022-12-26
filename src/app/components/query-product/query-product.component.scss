@@ -1,0 +1,61 @@
+.container {
+    font-family: 'Merriweather', serif;
+    padding-bottom: 2rem;
+}
+
+.query-product-header {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.query-product-header h2 {
+    // font-weight: 700;
+    font-size: 2.6rem;
+}
+
+.query-product-header p {
+    opacity: .8;
+}
+
+.content-wrapper {
+    width: 100%;
+}
+
+
+.spinner {
+    // display: none;
+    border: 8px solid rgba(0, 0, 0, .1);
+    border-left-color: #22a6b3;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+.start-displaying-card {
+    cursor: default; 
+    .btn {
+        opacity: .4;
+        cursor: default; 
+    }
+}
+
+.no-result {
+    width: 100%;
+    border-radius: .5rem;
+    background-color: #fff;
+    height: 40vh;
+    border: 1px solid rgba(128, 128, 128, 0.555);
+}
+
+.no-result div {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}

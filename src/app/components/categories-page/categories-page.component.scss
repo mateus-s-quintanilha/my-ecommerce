@@ -1,0 +1,141 @@
+.container {
+    font-family: 'Merriweather', serif;
+}
+
+.categories-page-header {
+    position: relative;
+    padding-top: 3rem;
+}
+
+.line-below {
+    position: absolute;
+    width: 6rem;
+    height: 5px;
+    background-color: rgb(35,159,115);
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.section-main-categories {
+    padding-bottom: 2rem;
+}
+
+.categories-page-header h2{
+    font-weight: 700;
+    font-size: 2.6rem;
+}
+
+.categories-page-content {
+    padding-top: 2rem;
+}
+
+.main-categories-header h3, .all-categories-header h3 {
+    font-size: 1.8rem;
+}
+
+
+.categories-title h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-categories-1, .main-categories-2, .main-categories-3, .main-categories-4 {
+    padding-top: 3rem;
+}
+
+.categories-title {
+    padding-bottom: 1rem;
+}
+
+
+
+.spinner {
+    // display: none;
+    border: 8px solid rgba(0, 0, 0, .1);
+    border-left-color: #22a6b3;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.section-all-categories {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.all-categories-header {
+    padding-bottom: 2rem;
+}
+
+.category:hover:not(#category-disabled) {
+    cursor: pointer;
+    .category-description  {
+        text-decoration: underline;
+    }
+    img {
+        transition: .5s;
+        max-width: 82%;
+    }
+}
+
+.category img {
+    border-radius: 50%;
+    max-width: 80%;
+    // height: auto;
+}
+
+.category-description  {
+    font-family: 'Merriweather', serif;   
+    font-weight: 700; 
+    padding-top: .5rem;
+}
+
+#category-disabled {
+    cursor: default;
+    opacity: .6;
+    :hover {
+        text-decoration: none;
+    }
+}
+
+
+app-card-template {
+    width: 300px;
+}
+
+@media (max-width: 570px) {
+    app-card-template {
+        width: 85%;
+    }    
+
+    .main-categories-1, .main-categories-2, .main-categories-3, .main-categories-4 {
+        padding-top: .5rem;
+    }
+
+    .main-categories-header {
+        padding-bottom: 2rem;
+    }
+
+    .categories-page-header h2{
+        font-size: 2rem;
+    }
+}
+
+

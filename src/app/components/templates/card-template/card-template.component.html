@@ -1,0 +1,14 @@
+<div class="card">
+  
+    <img routerLink="/products/{{productOnCard!.id}}" src="{{productOnCard!.image!}}" class="card-img-top" alt="...">
+
+    <div class="card-body">
+      <p routerLink="/products/{{productOnCard!.id}}" class="card-text">{{productOnCard!.title}}</p>
+      <div routerLink="/products/{{productOnCard!.id}}" class="price">
+        USD {{productPrice!}}
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <a (click)="addToCart()" style="font-weight: 700;" class="btn btn-success rounded-pill col-10">Add to Cart</a>
+      </div>
+    </div>
+</div>

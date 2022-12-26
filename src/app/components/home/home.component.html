@@ -1,0 +1,179 @@
+<app-header [itemsInCard]="productsOnCart"></app-header>
+<div class="container-fluid">
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+            <div style="background-color: rgb(207,165,239);" class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <!-- <h3>10 seconds between slides...</h3>
+                <p>This carousel uses customized default values.</p> -->
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div style="background-color: rgb(217,223,255);" class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide" />
+            </div>
+            <div class="carousel-caption">
+                <!-- <h3>No mouse events...</h3>
+                <p>This carousel doesn't pause or resume on mouse events</p> -->
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div style="background-color: rgb(230,230,230)" class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide" />
+            </div>
+            <div class="carousel-caption">
+                <!-- <h3>No mouse events...</h3>
+                <p>This carousel doesn't pause or resume on mouse events</p> -->
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>
+<div class="container">
+    <div class="section-categories">
+        <h3>
+            Categories
+            <a style="text-decoration: none;" routerLink="/categories">
+                <span class="see-all">
+                    See All <fa-icon [icon]="faArrowCircleRight"></fa-icon>
+                </span>
+            </a>
+        </h3>
+        <div class="categories-wrapper d-flex flex-row justify-content-around align-items-center">
+            <div routerLink="/categories/electronics" class="category d-flex flex-column justify-content-center align-items-center">
+                <img src="https://i.ebayimg.com/images/g/XqUAAOSwYXFjgOCq/s-l200.webp" alt="" srcset="">
+                <span class="category-description">Eletronics</span>
+            </div>
+            <div id="category-disabled" class="category d-flex flex-column justify-content-center align-items-center">
+                <img src="https://i.ebayimg.com/images/g/2RAAAOSwxXljPIHd/s-l200.webp" alt="" srcset="">
+                <span class="category-description">Action Figures</span>
+            </div>
+            <div class="category d-flex flex-column justify-content-center align-items-center">
+                <img src="https://i.ebayimg.com/images/g/t1AAAOSw7aBjPIHp/s-l200.webp" alt="" srcset="">
+                <span class="category-description">Home</span>
+            </div>
+            <div routerLink="/categories/jewelery" class="category d-flex flex-column justify-content-center align-items-center">
+                <img src="https://i.ebayimg.com/images/g/KTwAAOSwh9pjPIH0/s-l200.webp" alt="" srcset="">
+                <span class="category-description">Jewelery & Acessories</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="section-best-sellers">
+        <h3>
+            Best Sellers
+        </h3>
+        <!-- <div class="best-sellers-wrapper d-flex flex-row justify-content-between align-items-center"> -->
+        <div class="best-sellers-wrapper">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let productItem of bestSellerProduct">
+                    <app-card-template (addToCardEvent)="onAddToCardEvent($event)" [productOnCard]="productItem"></app-card-template>
+                </div>
+            </div>
+            <div class="row start-displaying">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    <hr>
+    <div class="section-see-all">
+        <h3>
+            All Products
+        </h3>
+        <!-- <div class="see-all-wrapper d-flex flex-column justify-content-between align-items-center"> -->
+        <div class="see-all-wrapper">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let productItem of productList">
+                    <app-card-template (addToCardEvent)="onAddToCardEvent($event)" [productOnCard]="productItem"></app-card-template>
+                </div>
+
+            </div>
+
+            <div class="row start-displaying">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card start-displaying-card d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                            <p class="card-text"></p>
+                            <div class="price"></div>
+                            <a style="font-weight: 700;" class="btn btn-success rounded-pill col-12">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

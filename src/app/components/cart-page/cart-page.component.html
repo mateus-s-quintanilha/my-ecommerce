@@ -1,0 +1,88 @@
+<app-header></app-header>
+<div class="container d-flex flex-column justify-content-center">
+    <div class="cart-page-header d-flex flex-row justify-content-center align-items-center">
+        <fa-icon style="font-size: 2rem;" [icon]="faShoppingCart"></fa-icon> <h2>Cart</h2>
+        <span class="line-below"></span>
+    </div>
+    <div class="cart-page-content">
+        <div *ngFor="let product of productsArr" class="content-wrapper d-flex flex-column justify-content-center align-items-center">
+            <div class="product d-flex flex-row justify-content-around align-items-center">
+                <img src="{{product!.image}}" alt="" srcset="">
+                <div id="product-title" class="d-flex justify-content-center align-items-center">
+                    {{product!.title}}
+                </div>
+                <div class="increase-or-decrease-btn d-flex flex-row justify-content-between align-items-center">
+                    <!-- <div *ngIf="firstDecreaseBtn" id="decrease-btn-start">-</div> -->
+                    <div #decrease (click)="decreaseCounter(product)" id="decrease-btn">-</div>
+                    <!-- <input type="text" id="counter" placeholder="" value="1"> -->
+                    <input type="text" id="counter" name="counter" value="{{product!.quantity}}">
+                    <div #increase (click)="increaseCounter(product)" id="increase-btn">+</div>
+                </div>
+                <div id="price" class="d-flex justify-content-center align-items-center">
+                    <span style="font-size: 1rem; padding-right: .5rem;">USD</span> {{product!.price}}
+                </div>
+            </div>
+            <div class="product-sub d-flex flex-row justify-content-between align-items-center">
+                <div class="sub-links d-flex justify-content-around align-items-center">
+                    <div (click)="removeProduct(product.id)" class="product-sub-item">
+                        Remove
+                    </div>
+                    <div routerLink="/categories" class="product-sub-item">
+                        See products of the same category
+                    </div>
+                    <div class="product-sub-item">
+                        Buy it Now
+                    </div>
+                </div>
+                <div class="sub-stock d-flex justify-content-center align-items-center">
+                    {{ product.rating.count }} available
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div *ngIf="productsArr.length >= 1">
+            <div class="values d-flex flex-column justify-content-center align-items-end">
+                <div class="values-item d-flex flex-row justify-content-between">
+                    <div>Subtotal:</div>
+                    <div> 
+                        <span style="font-size: .8rem; padding-right: .5rem;">USD</span> {{ totalProductsPrice | number: '1.2-2' }}
+                    </div>
+                </div>
+                <div class="values-item d-flex flex-row justify-content-between">
+                    <div>Shipping Fee:</div>
+                    <div> 
+                        <span style="font-size: .8rem; padding-right: .5rem;">USD</span> 5.00
+                    </div>
+                </div>
+                <div class="values-item d-flex flex-row justify-content-between">
+                    <div>Order Total:</div>
+                    <div> 
+                        <span style="font-size: .8rem; padding-right: .5rem;">USD</span> {{ totalProductsPrice + 5 | number: '1.2-2'}}
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="proceed">
+                <div class="d-grid col-6 mx-auto">
+                    <!-- routerLink="/buying" -->
+                    <button (click)="navigateToPurchasePage()" class="btn btn-success rounded-pill" type="button">Proceed Buying</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="startDisplaying == true" class="d-flex flex-column justify-content-center align-items-center">
+            <hr>
+            <div class="spinner"></div>
+            <hr>
+        </div>
+        <div class="empty-card-message d-flex flex-column justify-content-center" >
+            <div class="d-flex justify-content-center">
+                Your shopping cart is empty.
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<!-- <div style="display: none;">
+    <app-purchase-page [productsArr]="productsArr"></app-purchase-page>
+</div> -->
