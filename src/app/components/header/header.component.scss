@@ -26,6 +26,10 @@
     font-weight: 400;
 }
 
+.navbar form {
+    width: 60%;
+}
+
 // .collapse {
 //     style="max-width: 34%;"
 // }
@@ -38,6 +42,7 @@
 
 .navbar-brand {
     font-size: 1.6rem;
+    padding-right: 1rem;
 }
 
 .cart-icon {
@@ -100,6 +105,17 @@
         right: 95%;
         top: 60%;
     }  
+    .navbar form {
+        width: 50%;
+    }
+
+    .navbar form input {
+        font-size: .8rem;
+    }
+    .navbar-brand {
+        padding-right: 0;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -120,4 +136,7 @@
         right: 93%;
         top: 60%;
     } 
+    .navbar form input {
+        font-size: .7rem;
+    }
 }
