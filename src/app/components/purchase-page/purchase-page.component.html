@@ -3,7 +3,8 @@
       <a class="navbar-brand" routerLink="/">Store<span style="font-weight: 700;"> <span style="color: rgb(254,231,18);">M</span><span style="color: rgb(35,159,115);">Q</span></span></a>
     </div>
 </nav> 
-<div class="container d-flex flex-row">
+<!-- <div class="container main-container d-flex flex-row"> -->
+<div class="container main-container">
     <div class="info-address">
         <div class="address-header">
             <h2>Address</h2>
@@ -53,23 +54,23 @@
                             </div>
                         </div>
     
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-8 col-md-3">
                             <label for="city">City</label>
                             <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userData.city" placeholder="City" disabled #city="ngModel">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-4 col-md-3">
                             <label for="state">State</label>
                             <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userData.state" placeholder="State" disabled #state="ngModel">
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-8 col-md-8">
                             <label for="str">Street</label>
                             <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userData.str" placeholder="Street" required #str="ngModel">
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-4 col-md-2">
                             <label for="num">Number</label>
                             <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userData.num" placeholder="Number" required #num="ngModel">
                         </div>
@@ -87,11 +88,11 @@
                             </div>
                         </div>
     
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-8 col-md-3">
                             <label for="city">City</label>
                             <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userData.city" placeholder="City" disabled #city="ngModel">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-4 col-md-3">
                             <label for="state">State</label>
                             <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userData.state" placeholder="State" disabled #state="ngModel">
                         </div>
@@ -99,12 +100,12 @@
                     <br>
                     <div class="row">
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-8 col-md-8">
                             <label for="str">Street</label>
                             <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userData.str" placeholder="Street" disabled #str="ngModel">
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-4 col-md-2">
                             <label for="num">Number</label>
                             <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userData.num" placeholder="Number" required #num="ngModel">
                         </div>
@@ -112,8 +113,8 @@
 
                 </div>
                 <br><br>
-                <div class="row">
-                    <button type="submit" style="padding-top: .6rem; padding-bottom: .6rem; font-weight: 700; letter-spacing: 1px;" class="btn btn-dark col-md-10 rounded-pill">
+                <div class="row row-btn">
+                    <button type="submit" style="padding-top: .6rem; padding-bottom: .6rem; font-weight: 700; letter-spacing: 1px;" class="btn btn-dark col-10 col-md-10 rounded-pill">
                         Proceed
                     </button>
                 </div>
@@ -133,7 +134,7 @@
                         Products ({{totalProducts}})
                     </div>
                     <div id="section-1-value">
-                        {{totalValue ? totalValue : "0.00"}}
+                        <span style="font-size: 1rem; padding-right: .3rem;">USD</span> {{totalValue ? totalValue : "0.00"}}
                     </div>
                 </div>
                 <div class="section-content-2 d-flex flex-row justify-content-between">
@@ -141,14 +142,12 @@
                         Total with Shipping 
                     </div>
                     <div id="section-2-value">
-                        {{totalValue ? totalValue : "0.00"}}
+                        <span style="font-size: 1rem; padding-right: .3rem;">USD</span> {{totalValue ? totalValue : "0.00"}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="spinner">
-
-    </div>
+    <div class="spinner"></div>
 </div>
