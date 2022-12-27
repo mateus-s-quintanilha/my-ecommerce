@@ -74,6 +74,7 @@ export class PurchasePageComponent implements OnInit {
 
     this.totalProducts = totalQty 
     
+    
   }
   
   

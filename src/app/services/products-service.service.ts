@@ -21,6 +21,10 @@ export class ProductsServiceService {
     }
   }
 
+  resetUserList() {
+    this.productsSelected = []
+  }
+
   totalProductsQtyAndValue(prodsArr: any[], total: any) {
     this.totalValue = total + 5
 

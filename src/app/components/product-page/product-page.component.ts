@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApiIntegrationService } from './../../services/api-integration.service';
 
@@ -10,6 +10,7 @@ import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ProductsServiceService } from 'src/app/services/products-service.service';
 
 
 @Component({
@@ -37,9 +38,14 @@ export class ProductPageComponent implements OnInit {
 
   productPrice!: any;
 
+
+  productsOnCart!: number;
+
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: ApiIntegrationService,
+    private ProductService: ProductsServiceService
   ) { }
 
 
@@ -82,7 +88,7 @@ export class ProductPageComponent implements OnInit {
         items: 1
       },
       // 400: {
-      //   items: 2
+      //   items: 1
       // },
 
       570 : {
@@ -96,7 +102,9 @@ export class ProductPageComponent implements OnInit {
         items: 3
       }
     },
-    nav: true
+    nav: true,
+
+    stagePadding: 70
   }
 
 
@@ -106,10 +114,15 @@ export class ProductPageComponent implements OnInit {
       console.log('param: ', param);
       this.searchForProduct(param['id'])
     })
+
+    this.adjustCarousel()
   }
 
   searchForProduct(id: any) {
     this.service.fetchApiData().subscribe((list) => {
+      var spinner: any = document.getElementsByClassName('spinner')[0]
+      spinner.style.display = "none"
+
       this.product = list.filter((prod: any) => prod.id ==  id)[0]
       console.log('this.product: ', this.product)
 
@@ -193,6 +206,32 @@ export class ProductPageComponent implements OnInit {
       
       this.productPrice = newPrice + ".99"
     }
+  }
+
+
+  onAddToCardEvent(id: any) {
+    this.productsOnCart += 1
+    console.log("this.productsOnCart: ", this.productsOnCart, "id: ", id);
+
+    // this.ProductService.productsSelected.push(id)
+    this.ProductService.addProductToUserList(id)
+  }
+
+
+  adjustCarousel() {
+
+    if(document.body.clientWidth <= 510) {
+      this.customOptions.nav = false
+    }
+  }
+
+  buyItNow(id: any) {
+    this.ProductService.resetUserList()
+
+    this.ProductService.addProductToUserList(id)
+    console.log('user list: ', this.ProductService.productsSelected);
+  
+    this.router.navigate(['/buying'])
   }
 
 }

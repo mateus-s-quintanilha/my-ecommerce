@@ -3,7 +3,7 @@
     <img routerLink="/products/{{productOnCard!.id}}" src="{{productOnCard!.image!}}" class="card-img-top" alt="...">
 
     <div class="card-body">
-      <p routerLink="/products/{{productOnCard!.id}}" class="card-text">{{productOnCard!.title}}</p>
+      <p routerLink="/products/{{productOnCard!.id}}" class="card-text text-truncate">{{productOnCard!.title}}</p>
       <div routerLink="/products/{{productOnCard!.id}}" class="price">
         USD {{productPrice!}}
       </div>

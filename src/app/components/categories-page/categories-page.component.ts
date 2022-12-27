@@ -24,8 +24,38 @@ export class CategoriesPageComponent implements OnInit {
     private service: ApiIntegrationService
   ) { }
 
+  // customOptions: OwlOptions = {
+  //   loop: true,
+  //   mouseDrag: true,
+  //   touchDrag: true,
+  //   pullDrag: false,
+  //   dots: false,
+  //   navSpeed: 800,
+  //   // navText: [`<i class='icon-chevron-left icon-white'><</i>`, `<fa-icon icon="${this.faArrowCircleLeft}"><fa-icon>`],
+  //   navText: ['<span class="fas fa-chevron-left fa-2x"></span>','<span class="fas fa-chevron-right fa-2x"></span>'],
+  //   responsive: {
+  //     0: {
+  //       items: 1
+  //     },
+  //     // 400: {
+  //     //   items: 2
+  //     // },
+
+  //     570 : {
+  //       items: 1
+  //     },
+
+  //     740: {
+  //       items: 3
+  //     },
+  //     940: {
+  //       items: 3
+  //     }
+  //   },
+  //   nav: true
+  // }
   customOptions: OwlOptions = {
-    loop: true,
+    loop: false,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
@@ -41,7 +71,7 @@ export class CategoriesPageComponent implements OnInit {
       //   items: 2
       // },
 
-      570 : {
+      500 : {
         items: 1
       },
 
@@ -52,7 +82,12 @@ export class CategoriesPageComponent implements OnInit {
         items: 3
       }
     },
-    nav: true
+    nav: true,
+
+
+    stagePadding: 30,
+    // autoWidth: true
+    // rtl: true
   }
 
   customOptionsCategories: OwlOptions = {
@@ -92,6 +127,7 @@ export class CategoriesPageComponent implements OnInit {
     this.fetchWomensClothingProducts()
     this.fetchJeweleryProducts()
     this.fetchUnder30DollarsProducts()
+    this.adjustCarousel()
   }
 
   fetchEletronicProducts() {
@@ -142,5 +178,24 @@ export class CategoriesPageComponent implements OnInit {
     arrayRowList.forEach((row: any) => {
       row.style.display = "none"
     })
+  }
+
+
+  adjustCarousel() {
+    // if(window.innerWidth <= 500) {
+    //   console.log('OLHA: window.innerWidth');
+    // } if(window.outerWidth <= 500) {
+    //   console.log('OLHA: window.outerWith');
+    // } if(document.body.clientWidth <= 500) {
+    //   console.log('OLHA: document.body.clientWidth');
+    // } if(screen.availWidth <= 500) {
+    //   console.log('OLHA: screen.availWidth')
+    // } if(screen.width <= 500) {
+    //   console.log('OLHA: screen.width');
+    // }
+
+    if(document.body.clientWidth <= 500) {
+      this.customOptions.nav = false
+    }
   }
 }

@@ -128,7 +128,7 @@ hr{
 
 .line-below {
     position: absolute;
-    width: 3rem;
+    width: 4rem;
     height: 5px;
     background-color: rgb(35,159,115);
     left: 50%;
@@ -185,6 +185,25 @@ app-card-template {
 }
 
 
+.spinner {
+    border: 8px solid rgba(0, 0, 0, .1);
+    border-left-color: #22a6b3;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    // margin-top: 3rem;
+    // margin-bottom: 3rem;
+    position: absolute;
+    top: 18%;
+    left: 40%;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
 @media(max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
@@ -206,4 +225,18 @@ app-card-template {
     app-card-template {
         width: 85%;
     }  
+
+    .spinner {
+        top: 29%;
+        left: 44%;
+    }
+}
+
+
+
+@media(max-width: 500px) {
+    .spinner {
+        top: 22%;
+        left: 40%;
+    }
 }

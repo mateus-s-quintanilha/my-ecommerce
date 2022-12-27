@@ -150,7 +150,7 @@ export class CartPageComponent implements OnInit {
 
   removeProduct(productId: any) {
     this.productsArr = this.productsArr.filter((product: any) => product.id != productId)
-    console.log("this.productsArr.length: ", this.productsArr.length);
+    // console.log("this.productsArr.length: ", this.productsArr.length);
     
     if(this.productsArr.length <= 0) {
       var message: any = document.querySelector('.empty-card-message')

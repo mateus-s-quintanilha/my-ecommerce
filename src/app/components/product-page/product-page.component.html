@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header [itemsInCard]="productsOnCart"></app-header>
 <div class="container">
     <!-- <div class="content-wrapper d-flex flex-row justify-content-between"> -->
     <div class="content-wrapper">
         <div class="product-image d-flex justify-content-center align-items-center">
             <img src="{{product!.image}}" alt="" srcset="">
+            <div class="spinner"></div>
         </div>
         <div class="product-info d-flex flex-column">
             <div class="info-header">
@@ -29,8 +30,8 @@
                 </div>
                 <div class="buttons">
                     <div class="d-grid gap-2 col-8 mx-auto">
-                        <button class="btn btn-dark rounded-pill" type="button">Buy It Now</button>
-                        <button class="btn btn-primary rounded-pill" type="button">Add to Cart</button>
+                        <button class="btn btn-dark rounded-pill" (click)="buyItNow(product.id)" type="button">Buy It Now</button>
+                        <button class="btn btn-primary rounded-pill" (click)="onAddToCardEvent(product.id)" type="button">Add to Cart</button>
                     </div>
 
                 </div>

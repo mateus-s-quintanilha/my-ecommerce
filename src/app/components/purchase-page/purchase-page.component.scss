@@ -26,7 +26,8 @@
     // d-flex flex-row
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+
+    min-height: 100vh; 
 }
 
 .info-address, .info-product {
@@ -171,4 +172,15 @@
         top: 100%;
         left: 42%;
     }
+
+    .main-container {
+        min-height: 0;
+    }
+
+    .line-below {
+        width: 5rem;
+        left: 11.5%;
+        transform: translateX(-50%);
+    }
+    
 }

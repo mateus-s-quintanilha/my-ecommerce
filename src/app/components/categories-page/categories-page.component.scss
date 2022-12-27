@@ -117,12 +117,13 @@ hr {
 
 
 app-card-template {
-    width: 300px;
+    width: 280px;
 }
+
 
 @media (max-width: 570px) {
     app-card-template {
-        width: 85%;
+        // width: 85%;
     }    
 
     .main-categories-1, .main-categories-2, .main-categories-3, .main-categories-4 {
@@ -137,5 +138,3 @@ app-card-template {
         font-size: 2rem;
     }
 }
-
-
