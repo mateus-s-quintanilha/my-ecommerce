@@ -27,6 +27,22 @@
     padding-top: 3rem; 
 }
 
+.spinner {
+    // display: none;
+    border: 8px solid rgba(0, 0, 0, .1);
+    border-left-color: #22a6b3;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 
 @media (max-width: 570px) {
     .single-category-page-header h2 {

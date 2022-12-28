@@ -54,12 +54,14 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="prodsToShow.length == 0" class="no-result d-flex flex-row justify-content-evenly align-items-center">
+        <!-- <div *ngIf="prodsToShow.length == 0" class="no-result d-flex flex-row justify-content-evenly align-items-center"> -->
+        <div *ngIf="prodsToShow.length == 0" class="no-result">
             <fa-icon style="font-size: 2.5rem;" [icon]="faSearch"></fa-icon>
-            <div>
+            <div style="text-align: center;">
                 No exact matches found for "{{paramOnURL}}".
             </div>
         </div>
     </div>
 
 </div>
+<app-footer></app-footer>

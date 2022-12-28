@@ -88,6 +88,9 @@ export class CategoriesPageComponent implements OnInit {
     stagePadding: 50,
     // autoWidth: true
     // rtl: true
+    
+    // animateIn: true,
+    // animateOut: "fadeOut"
   }
 
   customOptionsCategories: OwlOptions = {

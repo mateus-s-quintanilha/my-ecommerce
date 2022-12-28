@@ -23,7 +23,8 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { SingleCategoryPageComponent } from './components/single-category-page/single-category-page.component';
 import { QueryProductComponent } from './components/query-product/query-product.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
-import { PurchasePageComponent } from './components/purchase-page/purchase-page.component'; //CarouselModule needs this to work correctly
+import { PurchasePageComponent } from './components/purchase-page/purchase-page.component';
+import { FooterComponent } from './components/footer/footer.component'; //CarouselModule needs this to work correctly
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PurchasePageComponent } from './components/purchase-page/purchase-page.
     SingleCategoryPageComponent,
     QueryProductComponent,
     CartPageComponent,
-    PurchasePageComponent
+    PurchasePageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

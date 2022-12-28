@@ -31,6 +31,8 @@ export class SingleCategoryPageComponent implements OnInit {
   searchForCategory(param: any) {
     this.service.fetchApiData().subscribe((res: any) => {
 
+      this.ocultStartDisplay()
+
       switch (param) {
         case 'under-30-dollars':
         this.dataToShow = res.filter((prod: any) => prod.price <= 30) 
@@ -61,14 +63,12 @@ export class SingleCategoryPageComponent implements OnInit {
     })
   }
 
-  // fetchUnder30DollarsProducts() {
-  //   this.service.fetchApiData().subscribe((prods: any) => {
-  //     this.under30Prods = prods.filter((prod: any) => prod.price <= 30)
-
-  //     console.log('this.under30Prods: ', this.under30Prods);
-      
-  //   })
-  // }
-
+  ocultStartDisplay() {
+    var rowList: any = document.getElementsByClassName('start-displaying')
+    var arrayRowList = Array.from(rowList)
+    arrayRowList.forEach((row: any) => {
+      row.style.display = "none"
+    })
+  }
 
 }
