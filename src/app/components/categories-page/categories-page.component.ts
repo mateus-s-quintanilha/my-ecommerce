@@ -85,7 +85,7 @@ export class CategoriesPageComponent implements OnInit {
     nav: true,
 
 
-    stagePadding: 30,
+    stagePadding: 50,
     // autoWidth: true
     // rtl: true
   }
