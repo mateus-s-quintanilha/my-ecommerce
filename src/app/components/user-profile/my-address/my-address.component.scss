@@ -1,0 +1,168 @@
+.container {
+    padding-top: 2rem;
+    font-family: 'Merriweather', serif;
+    padding-bottom: 2rem;
+}
+
+.content-header {
+    width: 35%;
+}
+
+.go-back fa-icon {
+    margin-right: .4rem;
+}
+.go-back {
+    cursor: pointer;    
+}
+
+.go-back h4, .content-header h3 {
+    margin-top: .4rem;
+}
+
+.go-back:hover {
+    text-decoration: underline;
+}
+
+.content-header h3 {
+    border-left: 1px solid rgba(0, 0, 0, 0.651);
+    padding-left: 1.2rem;
+    white-space: nowrap;
+}
+.content-header h4 {
+    white-space: nowrap;
+}
+
+.body-header {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+
+.line-below {
+    position: absolute;
+    width: 4rem;
+    height: 5px;
+    background-color: rgb(35,159,115);
+    left: 50%;
+    top: 90%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+
+.body-info {
+    background-color: #fff;
+    // padding: 1rem;
+    border-radius: .4rem;
+    width: 80%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.section-address {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.section-address {
+    border-bottom: 1px solid rgba(180, 180, 180, 0.507);;
+}
+
+
+.address-info {
+    width: 75%;
+}
+
+.street {
+    opacity: .9;
+    font-size: 1rem;
+    padding-bottom: .5rem;
+}
+
+.zip, .name {
+    opacity: .7;
+    font-size: .85rem;
+}
+
+.address-not-found-message p {
+    font-size: 1.6rem;
+}
+
+.section-address .icon-wrapper {
+    margin-left: .8rem;
+}
+
+
+.section-button {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: .5s;
+    cursor: pointer;
+    // border-top: 1px solid rgba(180, 180, 180, 0.507);
+}
+
+.section-button:hover {
+    background-color: rgba(197, 197, 197, 0.507);
+}
+
+.button-text {
+    font-weight: 700;
+    color: rgb(35,159,115);
+    margin-left: .6rem;
+    letter-spacing: 1px;
+}
+
+.section-button fa-icon {
+    color: rgb(35,159,115);
+    margin-right: .6rem;
+}
+
+#dropdownConfig {
+    padding: .3rem 1rem;
+    border-radius: 50%;
+    transition: .3s;
+    margin-right: .6rem;
+}
+#dropdownConfig:hover { 
+    background-color: rgba(197, 197, 197, 0.507);
+    fa-icon {
+        color: black;
+    }
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+#alert {
+    display: none;
+    width: 80%;
+}
+
+
+
+@media (max-width: 992px) {
+    .content-header {
+        width: 45%;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-header {
+        width: 58%;
+    }
+
+    .address-not-found-message p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .content-header {
+        width: 65%;
+    }
+
+    .address-not-found-message p {
+        font-size: .9rem;
+    }
+}

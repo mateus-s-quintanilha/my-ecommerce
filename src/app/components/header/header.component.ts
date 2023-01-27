@@ -1,9 +1,12 @@
+import { UserService } from './../../services/firebase-services/user.service';
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserCheck } from '@fortawesome/free-solid-svg-icons';
+
+import {Auth, onAuthStateChanged } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -13,23 +16,34 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent implements OnInit {
 
   faSearch = faSearch
-
   faShoppingCart = faShoppingCart
-
   faUser = faUser
+  faUserCheck = faUserCheck
 
   public isCollapsed = true
 
   searchTerm: any;
 
-  @Input() itemsInCard!: number;
-  // itemsInCard: number = 2;
+  // @Input() itemsInCard!: number;
+  itemsInCart!: number;
 
+  logged: boolean = false;
+
+  userInfo!: any;
+  user1stName!: any;
+
+  userUID!: any;
   constructor(
     private route: ActivatedRoute,
-    private router : Router
-  ) { }
-
+    private router : Router,
+    private fireAuth: Auth,
+    private userService: UserService
+  ) { 
+    this.checkIfUserIsLogged()
+    // this.userUID = this.fireAuth.currentUser!.uid
+    this.getItemsInCart()
+  }
+  
   ngOnInit(): void {
     this.getUrlParam()
   }
@@ -68,6 +82,9 @@ export class HeaderComponent implements OnInit {
             }
           })
           break;
+        case "my-profile":
+          document.getElementById('navbarDropdown')!.classList.add("active")
+        break;
         default:
           break;
       }
@@ -78,4 +95,41 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/query'], {queryParams: {'qry': this.searchTerm}})
      .then(() => window.location.reload())
   }
+
+  logOut() {
+    this.userService.logUserOut()
+     .then(res => {
+      //  this.router.navigate(['/'])
+      window.location.reload()
+     })
+     .catch(err => {
+        console.log(err);
+     })
+  }
+
+  checkIfUserIsLogged() {
+    onAuthStateChanged(this.fireAuth, (user) => {
+      if(user) {
+        this.logged = true
+        this.userInfo = user
+        this.user1stName = user.displayName?.split(' ')[0]
+        console.log('user: ', user);
+      } else {
+        console.log('user not authenticated');
+      }
+    })
+  }
+
+  getItemsInCart() {
+
+    onAuthStateChanged(this.fireAuth, (user) => {
+      this.userService.getAllProductsOnCartList(user!.uid).subscribe((res) => {
+        this.itemsInCart = res.length
+      })
+    })
+
+
+  }
+
+
 }

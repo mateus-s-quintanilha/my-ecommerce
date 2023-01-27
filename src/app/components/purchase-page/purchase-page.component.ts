@@ -1,8 +1,10 @@
+import { UserService } from './../../services/firebase-services/user.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ProductsServiceService } from './../../services/products-service.service';
 import { ApiIntegrationService } from './../../services/api-integration.service';
 import { ZipServiceService } from './../../services/zip-service.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-purchase-page',
@@ -16,8 +18,8 @@ export class PurchasePageComponent implements OnInit {
   productsArr: any[] = [];
 
   userData: any = {
-    name: null,
-    email: null,
+    name: this.fireAuth.currentUser!.displayName,
+    email: this.fireAuth.currentUser!.email,
     location: null,
     zip: null,
     city: null,
@@ -30,32 +32,55 @@ export class PurchasePageComponent implements OnInit {
 
   QtyAndIdProds!: any[];
 
-  totalProducts!: number;
+  totalProducts!: any;
 
   constructor(
     private ProductsService: ProductsServiceService,
     private APIservice: ApiIntegrationService,
-    private zipService: ZipServiceService
+    private zipService: ZipServiceService,
+    private fireAuth: Auth,
+    private userService: UserService
   ) {
     this.getProductsToBuy()
-    this.getProdArrObjsAndTotalValue()
+    // this.getProdArrObjsAndTotalValue()
   }
   
   ngOnInit(): void {
   }
   
   getProductsToBuy() {
-    this.APIservice.fetchApiData().subscribe((products: any) => {
-      this.ProductsService.productsSelected.forEach((SelectedProdID: any) => {
-        products.filter((product: any) => {
-          if(product.id == SelectedProdID) {
-            this.productsArr.push(product)
-          }
-        })
+    var userUID = this.fireAuth.currentUser!.uid
+
+    this.userService.getAllProductsOnCartList(userUID).subscribe((prods: any) => {
+      console.log("prods no purchase: ", prods);
+
+      var totalProds = 0
+      var totalPrice = 0
+      prods.forEach((prod: any) => {
+        totalProds += prod.quantity
+  
+        totalPrice += parseFloat(prod.totalPrice)
       })
-      console.log("produtos aqui no buying: ", this.productsArr)
+  
+      this.totalProducts = totalProds
+      this.totalValue = totalPrice
+      console.log("this.totalProducts: ", totalProds);
+      console.log("this.totalValue: ", totalPrice);
     })
   } 
+
+  calculateTotalPriceAndProducts(prodsArr: any[]) {
+    prodsArr.forEach((prod: any) => {
+      this.totalProducts += prod.quantity
+
+      this.totalValue += ( parseFloat(prod.totalPrice) * prod.quantity ) 
+    })
+
+    console.log("this.totalProducts: ", this.totalProducts);
+    console.log("this.totalValue: ", this.totalValue);
+    
+    
+  }
 
   getProdArrObjsAndTotalValue() {
     console.log("Array com ID e Quantidade dos produtos", this.ProductsService.productsIdQty)
@@ -76,7 +101,6 @@ export class PurchasePageComponent implements OnInit {
     
     
   }
-  
   
   onSubmit(formulary: any) {
     console.log(formulary.value);
@@ -101,14 +125,6 @@ export class PurchasePageComponent implements OnInit {
         setTimeout(() => {zipAlert!.style.display = "none"}, 2500)
       })
     }, 1000)
-    // this.zipService.getUsaZip(zip).subscribe((res: any) => {
-    //   spinnerAnimation!.style.display = "none"
-    //   console.log('res: ', res);
-
-    //   this.populateData(form, res, null)
-    // }, (err: any) => {
-    //   console.log("Deu erro!");
-    // })
   }
 
   getBrazilZip(zip: any, form: any) {
@@ -131,17 +147,6 @@ export class PurchasePageComponent implements OnInit {
         setTimeout(() => {zipAlert!.style.display = "none"}, 2500)
       })
     }, 1000)
-      // this.zipService.getBrazilZip(zip).subscribe((res: any) => {
-      //   spinnerAnimation!.style.display = "none"
-      //   console.log("res: ", res);
-
-      
-      //   this.populateData(form, null, res)
-      
-      // }, (err: any) => {
-      //   console.log('Deu erro!');
-
-      // })
   }
 
   populateData(form: any, usaZipObj?: any, brZipObj?: any) {

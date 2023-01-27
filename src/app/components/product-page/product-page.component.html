@@ -1,6 +1,5 @@
-<app-header [itemsInCard]="productsOnCart"></app-header>
+<app-header></app-header>
 <div class="container">
-    <!-- <div class="content-wrapper d-flex flex-row justify-content-between"> -->
     <div class="content-wrapper">
         <div class="product-image d-flex justify-content-center align-items-center">
             <img src="{{product!.image}}" alt="" srcset="">
@@ -31,7 +30,8 @@
                 <div class="buttons">
                     <div class="d-grid gap-2 col-8 mx-auto">
                         <button class="btn btn-dark rounded-pill" (click)="buyItNow(product.id)" type="button">Buy It Now</button>
-                        <button class="btn btn-primary rounded-pill" (click)="onAddToCardEvent(product.id)" type="button">Add to Cart</button>
+                        <!-- <button class="btn btn-primary rounded-pill" (click)="onAddToCardEvent(product.id)" type="button">Add to Cart</button> -->
+                        <button class="btn btn-primary rounded-pill" (click)="addToCartFirebase()" type="button">Add to Cart</button>
                     </div>
 
                 </div>
@@ -82,7 +82,7 @@
     </div>
 
 </div>
-<div id="footer" class="container-fluid bg-dark">
+<!-- <div id="footer" class="container-fluid bg-dark">
     <div class="container bg-dark">
         <div class="copyright-content d-flex justify-content-center">
             <p id="copyright-paragraph">
@@ -90,4 +90,5 @@
             </p>
         </div>
     </div>
-</div>
+</div> -->
+<app-simple-footer></app-simple-footer>

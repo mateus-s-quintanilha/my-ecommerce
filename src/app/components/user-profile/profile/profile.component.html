@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="container"> 
+    <div class="content-wrapper">
+        <div class="main-container d-flex flex-row justify-content-around">
+            <div class="user-photo">
+                <img src="../../../assets/unknownUser - cópia.png" alt="">
+            </div>
+            <div class="user-name d-flex flex-column justify-content-center">{{ userName }}</div>
+        </div>
+        <div class="list-container d-flex flex-column">
+            
+            <div routerLink="/my-profile/my-data" class="section-my-data d-flex flex-row">
+                <div class="icon-wrapper d-flex flex-column align-items-center">
+                    <fa-icon class="fa-2x" [icon]="faUserLarge"></fa-icon>
+                </div>
+                <div class="section-info d-flex flex-column">
+                    <div class="section-title">
+                        <h4>My data</h4>
+                    </div>
+                    <div class="section-sub-title">
+                        <p>manage your personal data.</p>
+                    </div>
+                </div>
+                <div class="icon-wrapper d-flex flex-column justify-content-center lign-items-center">
+                    <fa-icon class="arrow" [icon]="faAngleRight"></fa-icon>
+                </div>
+            </div>
+            <div routerLink="/my-profile/my-address" class="section-adresses d-flex flex-row">
+                <div class="icon-wrapper d-flex flex-column align-items-center">
+                    <fa-icon class="fa-2x" [icon]="faLocation"></fa-icon>
+                </div>
+                <div class="section-info d-flex flex-column">
+                    <div class="section-title">
+                        <h4>Addresses</h4>
+                    </div>
+                    <div class="section-sub-title">
+                        <p>Change your addresses or add another one.</p>
+                    </div>
+                </div>
+                <div class="icon-wrapper d-flex flex-column justify-content-center lign-items-center">
+                    <fa-icon class="arrow" [icon]="faAngleRight"></fa-icon>
+                </div>
+            </div>
+            <div routerLink="/my-profile/desire-list" class="section-my-list d-flex flex-row">
+                <div class="icon-wrapper d-flex flex-column align-items-center">
+                    <fa-icon class="fa-2x" [icon]="faListUl"></fa-icon>
+                </div>
+                <div class="section-info d-flex flex-column">
+                    <div class="section-title">
+                        <h4>Your List</h4>
+                    </div>
+                    <div class="section-sub-title">
+                        <p>create and manage your wish list.</p>
+                    </div>
+                </div>
+                <div class="icon-wrapper d-flex flex-column justify-content-center lign-items-center">
+                    <fa-icon class="arrow" [icon]="faAngleRight"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

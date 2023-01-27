@@ -43,7 +43,7 @@ prodsOnCart: number = 0;
     // console.log("this.prodsOnCart: ", this.prodsOnCart);
 
     // this.addToCardEvent.emit({ event, id: this.productOnCard?.id })
-    this.addToCardEvent.emit( this.productOnCard?.id )
+    // this.addToCardEvent.emit( this.productOnCard?.id )
     
   }
 

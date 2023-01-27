@@ -14,7 +14,7 @@
             <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="form-row">
                 <div class="form-group col-md-10">
                     <label for="name">Name</label>
-                    <input type="text" id="name" class="form-control" name="name" [(ngModel)]="userData.name" placeholder="Name" required #name="ngModel">
+                    <input disabled type="text" id="name" class="form-control" name="name" [(ngModel)]="userData.name" placeholder="Name" required #name="ngModel">
                     <div *ngIf="!name.valid && name.touched" class="alert alert-danger">
                         <strong>Name</strong> is required.
                     </div>
@@ -22,7 +22,7 @@
                 <br>
                 <div class="form-group col-md-10">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel">
+                    <input disabled type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel">
                     <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
                         <strong>E-mail</strong> is required.
                     </div>
@@ -142,7 +142,7 @@
                         Total with Shipping 
                     </div>
                     <div id="section-2-value">
-                        <span style="font-size: 1rem; padding-right: .3rem;">USD</span> {{totalValue ? totalValue : (productsArr[0].price + 5).toFixed(2)}}
+                        <span style="font-size: 1rem; padding-right: .3rem;">USD</span> {{totalValue + 5}}
                     </div>
                 </div>
             </div>

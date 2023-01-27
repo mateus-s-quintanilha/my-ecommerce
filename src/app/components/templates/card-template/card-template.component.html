@@ -7,8 +7,12 @@
       <div routerLink="/products/{{productOnCard!.id}}" class="price">
         USD {{productPrice!}}
       </div>
-      <div class="d-flex justify-content-center align-items-center">
-        <a (click)="addToCart()" style="font-weight: 700;" class="btn btn-success rounded-pill col-10">Add to Cart</a>
+      <!-- <div class="d-flex justify-content-center align-items-center"> -->
+        <!-- <a (click)="addToCart()" style="font-weight: 700;" class="btn btn-success rounded-pill col-10">Add to Cart</a> -->
+      <!-- </div> -->
+
+      <div class="new-button-wrapper d-flex justify-content-center align-items-center">
+          <a routerLink="/products/{{productOnCard!.id}}" style="font-weight: 700; text-align: center; color: #fff; text-decoration: none; letter-spacing: 1px;" href="#">Buy Now</a>
       </div>
     </div>
 </div>

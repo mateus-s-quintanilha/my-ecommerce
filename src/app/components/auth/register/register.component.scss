@@ -1,0 +1,94 @@
+#dark-part {
+    height: 38vh;
+}
+
+#title-wrapper {
+    height: 30%;
+    width: 100%;
+    color: #fff;
+
+    font-size: 1.6rem;
+    // font-weight: 700;
+    font-family: 'Merriweather', serif;
+}
+
+#title {
+    padding-left: 1.5rem;
+    cursor: pointer;
+}
+
+.form-wrapper {
+    position: absolute;
+    padding: 1rem;
+    background-color: #fff;
+    top: 12%;
+    left: 50%;
+    width: 500px;
+
+    border-radius: .6rem;
+    // transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.wrapper-header {
+    position: relative;
+    padding-top: .5rem;
+}
+
+.wrapper-header h4{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.line-below {
+    position: absolute;
+    width: 6rem;
+    height: 5px;
+    background-color: rgb(35,159,115);
+    left: 19%;
+    top: 90%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+form {
+    padding-top: 1rem;
+}
+
+label {
+    font-weight: 700;
+    font-size: .9rem;
+}
+.form-group {
+    padding-top: .6rem;
+}
+
+.info:not(fa-icon) {
+    font-size: .7rem;
+    opacity: .8;
+    padding-top: .3rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    width: 100%; 
+    // background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background-image: linear-gradient(to right, #ccc, rgb(26, 26, 26), #ccc);
+}
+
+.row-btn {
+    padding-top: 1.4rem;
+}
+
+.login-link {
+    font-size: .8rem;
+    font-weight: 700;
+    opacity: .8;
+}
+
+.login-link a {
+    text-decoration: none;
+}

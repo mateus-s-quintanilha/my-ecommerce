@@ -120,11 +120,27 @@ app-card-template {
     width: 280px;
 }
 
+@media (max-width: 1200px) {
+    app-card-template {
+        width: 240px;
+    }   
+}
+
+// @media (max-width: 990px) {
+//     app-card-template {
+//         width: 410px;
+//         // width: fit-content;
+//         overflow-x: hidden;
+//     }   
+// }
+
 
 @media (max-width: 570px) {
     app-card-template {
-        // width: 85%;
-    }    
+        width: 400px;
+        // width: fit-content;
+        overflow-x: hidden;
+    }   
 
     .main-categories-1, .main-categories-2, .main-categories-3, .main-categories-4, .main-categories-5 {
         padding-top: 2rem;

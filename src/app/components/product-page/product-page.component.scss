@@ -203,28 +203,6 @@ app-card-template {
     to { transform: rotate(360deg); }
 }
 
-
-.copyright-content {
-    font-family: 'Merriweather', serif;
-    font-size: .9rem;
-    opacity: .8;
-    padding-top: 1rem;
-}
-
-#copyright-paragraph {
-color: #fff;
-}
-.copyright-content a {
-    text-decoration: none;
-    transition: .4s;
-    color: #fff;
-}
-.copyright-content a:hover {
-    text-decoration: underline;
-}
-
-
-
 @media(max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
@@ -259,8 +237,5 @@ color: #fff;
     .spinner {
         top: 22%;
         left: 40%;
-    }
-    .copyright-content {
-        font-size: .8rem;
     }
 }

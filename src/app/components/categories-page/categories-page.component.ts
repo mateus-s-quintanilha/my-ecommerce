@@ -23,9 +23,8 @@ export class CategoriesPageComponent implements OnInit {
   constructor(
     private service: ApiIntegrationService
   ) { }
-
   // customOptions: OwlOptions = {
-  //   loop: true,
+  //   loop: false,
   //   mouseDrag: true,
   //   touchDrag: true,
   //   pullDrag: false,
@@ -41,7 +40,7 @@ export class CategoriesPageComponent implements OnInit {
   //     //   items: 2
   //     // },
 
-  //     570 : {
+  //     500 : {
   //       items: 1
   //     },
 
@@ -52,8 +51,16 @@ export class CategoriesPageComponent implements OnInit {
   //       items: 3
   //     }
   //   },
-  //   nav: true
+  //   nav: true,
+
+  //   stagePadding: 50,
+  //   // autoWidth: true
+  //   // rtl: true
+    
+  //   // animateIn: true,
+  //   // animateOut: "fadeOut"
   // }
+
   customOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
@@ -74,23 +81,23 @@ export class CategoriesPageComponent implements OnInit {
       500 : {
         items: 1
       },
+      580 : {
+        items: 2
+      },
 
       740: {
         items: 3
       },
       940: {
+        items: 2
+      },
+      1000: {
         items: 3
       }
     },
     nav: true,
-
-
     stagePadding: 50,
-    // autoWidth: true
-    // rtl: true
-    
-    // animateIn: true,
-    // animateOut: "fadeOut"
+    autoWidth: true
   }
 
   customOptionsCategories: OwlOptions = {

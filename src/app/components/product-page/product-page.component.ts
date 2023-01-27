@@ -1,3 +1,4 @@
+import { UserService } from './../../services/firebase-services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,6 +13,7 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductsServiceService } from 'src/app/services/products-service.service';
 
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-product-page',
@@ -45,35 +47,11 @@ export class ProductPageComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: ApiIntegrationService,
-    private ProductService: ProductsServiceService
+    private ProductService: ProductsServiceService,
+    private userService: UserService,
+    private auth: Auth
   ) { }
 
-
-  // customOptions: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: true,
-  //   touchDrag: true,
-  //   pullDrag: false,
-  //   dots: false,
-  //   navSpeed: 800,
-  //   // navText: [`<i class='icon-chevron-left icon-white'><</i>`, `<fa-icon icon="${this.faArrowCircleLeft}"><fa-icon>`],
-  //   navText: ['<span class="fas fa-chevron-left fa-2x"></span>','<span class="fas fa-chevron-right fa-2x"></span>'],
-  //   responsive: {
-  //     0: {
-  //       items: 1
-  //     },
-  //     400: {
-  //       items: 2
-  //     },
-  //     740: {
-  //       items: 3
-  //     },
-  //     940: {
-  //       items: 3
-  //     }
-  //   },
-  //   nav: true
-  // }
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -232,6 +210,24 @@ export class ProductPageComponent implements OnInit {
     console.log('user list: ', this.ProductService.productsSelected);
   
     this.router.navigate(['/buying'])
+  }
+
+
+  addToCartFirebase() {
+    var userUID: string = this.auth.currentUser!.uid
+    this.userService.getSpecificProductsOnCartList(userUID, this.product.id).subscribe((specificProduct: any) => {
+      console.log('specificProduct: ', specificProduct.empty);
+      console.log('specificProduct lentgh: ', Object.keys(specificProduct));
+
+      // if(Object.keys(specificProduct).length === 0) {
+      if(specificProduct.empty === true) {
+      
+        this.userService.insertProductOnCartList(this.product.id, userUID, this.product.price).then((res: any) => {
+          console.log('Produto adicionado à subcollection com sucesso!')
+          console.log(res);
+        }).catch(err => console.log("erro ao adicionar produto à subcollection: ", err))
+      } 
+    })
   }
 
 }

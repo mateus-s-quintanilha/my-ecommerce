@@ -1,7 +1,31 @@
+.card {
+    cursor: pointer;
+    // min-width: 170px;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    transition: .5s;
+}
+
+.card:hover {
+    margin-top: -1rem;
+
+    .card-text {
+        display: block;
+        opacity: .8;
+        height: auto;
+    }
+    .new-button-wrapper {
+        background-color: #198754a1;
+    }
+}
+
+
 .card-img-top {
     height: 200px;
-    width: auto;
+    // width: auto;
+    max-width: 95%;
     object-fit: contain;
+    align-self: center;
 }
 
 .card-text {
@@ -19,29 +43,15 @@
 }
 
 .price {
-    font-weight: 400;
+    font-weight: 700;
     opacity: 1;
-    padding-bottom: 1rem;
+    // padding-bottom: .5rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-}
-
-.card {
-    cursor: pointer;
-    min-width: 170px;
-    margin-bottom: 2rem;
-    padding-top: 1rem;
-}
-
-.card:hover {
-    .card-text {
-        display: block;
-        opacity: .8;
-        height: auto;
-    }
+    color: rgba(0, 0, 0, 0.836);
 }
 
 .spinner {
@@ -59,10 +69,26 @@
 }
 
 
+
+.new-button-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 12%;
+    bottom: 0;
+    left: 0;
+    background-color: #198754;
+    transition: .4s;
+    border-bottom-left-radius: calc(0.375rem - 1px);
+    border-bottom-right-radius: calc(0.375rem - 1px);
+}
+
+.card-body {
+    min-height: 130px;
+}
+
+
 @media (max-width: 770px) {   
-    // .card-img-top {
-    //     height: 180px;
-    // }
+
     .card-text {
         font-size: .8rem;
     }
@@ -89,25 +115,30 @@
     .card-body {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        // justify-content: space-evenly;
+        justify-content: center;
+        height: 210px;
         // max-width: 70%;
         width: 60%;
     }
 
     .card-img-top {
-        height: 160px;
+        height: 140px;
         // width: auto;
         // max-width: 40%;
         width: 40%;
         object-fit: contain;
+        margin-top: -.5rem;
+    }
+
+    .new-button-wrapper {
+        height: 16%;
+        bottom: 0;
+        left: 0;
     }
 }
 
 @media (max-width: 500px) {
-    // .card {
-    //     width: 100%;
-    // }
-
 
     .card-img-top {
         height: 120px;
@@ -123,6 +154,11 @@
         justify-content: center;
         align-items: center;
         // width: 300px;
+    }
+
+    .card-body {
+        justify-content: flex-start;
+        height: 120px;
     }
 
     .btn {

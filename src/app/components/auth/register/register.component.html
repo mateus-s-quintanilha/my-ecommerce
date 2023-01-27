@@ -1,0 +1,66 @@
+<div class="all-content-wrapper">
+    <div id="dark-part" class="container-fluid bg-dark">
+        <div id="title-wrapper" class="d-flex align-items-center">
+            <div routerLink="/home" id="title">
+                Store<span style="font-weight: 700;"> <span style="color: rgb(254,231,18);">M</span> <span style="color: rgb(35,159,115);">Q</span> </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-wrapper d-flex flex-column justify-content-between">
+        <div class="row d-flex justify-content-center">
+            <ngb-toast *ngIf="toastDisplay" class="bg-success text-white">   
+                <span style="font-weight: 700; font-size: .8rem;" class="text-nowrap">You're registered! Navigating to login page....</span>
+            </ngb-toast>
+            <ngb-toast *ngIf="toastErrorDisplay" class="bg-danger text-white" [delay]="3000">   
+                <span style="font-weight: 700; font-size: .8rem;" class="text-nowrap">An error has occurred, please try again</span>
+            </ngb-toast>
+        </div>
+        <div class="wrapper-header">
+            <h4>Create Account</h4>
+            <span class="line-below"></span>
+        </div>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-row">
+            <div class="form-group col-md-12">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" name="name" [(ngModel)]="userRegisterData.name" placeholder="Name and Surname" required #name="ngModel">
+                <!-- <input type="text" id="name" class="form-control" name="name" [(ngModel)]="userData.name" placeholder="Name" required #name="ngModel"> -->
+            </div>
+            <!-- <br> -->
+            <div class="form-group col-md-12">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userRegisterData.email" placeholder="Your E-mail" required #email="ngModel">
+                <!-- <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel"> -->
+                <!-- <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+                    <strong>E-mail</strong> is required.
+                </div> -->
+            </div>
+            <!-- <br> -->
+            <div class="form-group col-md-12">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" [(ngModel)]="userRegisterData.password" placeholder="At least 6 characters..." required>
+                <!-- <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel"> -->
+                <!-- <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+                    <strong>E-mail</strong> is required.
+                </div> -->
+                <div class="info">
+                    <fa-icon [icon]="faCircleInfo"></fa-icon> Passwords must be at least 6 characters long.
+                </div>
+            </div>
+            <!-- <br> -->
+            <div class="form-group col-md-12">
+                <label for="conf-password">Confirm Password</label>
+                <input type="password" id="conf-password" class="form-control" name="conf-password" required>
+                <!-- <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel"> -->
+            </div>
+            <!-- <br> -->
+            <div class="row row-btn d-flex justify-content-center">
+                <button type="submit" style="font-weight: 700;" class="btn btn-success rounded-pill col-10">Confirm</button>
+            </div>
+            <!-- <br> -->
+            <hr>
+            <div class="login-link">
+                You already have an account? <a routerLink="/login">Login here</a>
+            </div>
+        </form>
+    </div>
+</div>

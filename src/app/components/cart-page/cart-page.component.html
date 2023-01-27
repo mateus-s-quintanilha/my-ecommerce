@@ -8,24 +8,27 @@
         <div *ngFor="let product of productsArr" class="content-wrapper d-flex flex-column justify-content-center align-items-center">
             <!-- <div class="product d-flex flex-row justify-content-around align-items-center"> -->
             <div class="product">
-                <img src="{{product!.image}}" alt="" srcset="">
+                <img style="cursor: pointer;" routerLink="/products/{{product.id}}" src="{{product!.image}}" alt="" srcset="">
                 <div id="product-title" class="d-flex justify-content-center align-items-center">
                     {{product!.title}}
                 </div>
                 <div class="increase-or-decrease-btn d-flex flex-row justify-content-between align-items-center">
                     <!-- <div *ngIf="firstDecreaseBtn" id="decrease-btn-start">-</div> -->
-                    <div #decrease (click)="decreaseCounter(product)" id="decrease-btn">-</div>
+                    <!-- <div #decrease (click)="decreaseCounter(product)" id="decrease-btn">-</div> -->
+                    <div #decrease (click)="decreaseCounterFS(product)" id="decrease-btn">-</div>
                     <!-- <input type="text" id="counter" placeholder="" value="1"> -->
                     <input type="text" id="counter" name="counter" value="{{product!.quantity}}">
-                    <div #increase (click)="increaseCounter(product)" id="increase-btn">+</div>
+                    <!-- <div #increase (click)="increaseCounter(product)" id="increase-btn">+</div> -->
+                    <div #increase (click)="increaseCounterFS(product)" id="increase-btn">+</div>
                 </div>
                 <div id="price" class="d-flex justify-content-center align-items-center">
-                    <span>USD</span> {{product!.price}}
+                    <span>USD</span> {{product!.price | number: '1.2-2'}}
                 </div>
             </div>
             <div class="product-sub d-flex flex-row justify-content-between align-items-center">
                 <div class="sub-links d-flex justify-content-around align-items-center">
-                    <div (click)="removeProduct(product.id)" class="product-sub-item">
+                    <!-- <div (click)="removeProduct(product.id)" class="product-sub-item"> -->
+                    <div (click)="removeFSProduct(product.dbID)" class="product-sub-item">
                         Remove
                     </div>
                     <div routerLink="/categories" class="product-sub-item">
@@ -83,7 +86,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div style="display: none;">
-    <app-purchase-page [productsArr]="productsArr"></app-purchase-page>
-</div> -->

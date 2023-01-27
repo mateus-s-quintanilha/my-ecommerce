@@ -4,18 +4,6 @@
       <!-- <form style="width: 50%;" class="d-flex justify-content-center"> -->
       <form class="d-flex justify-content-center">
         <input autocomplete="off" class="form-control me-2" name="searchTerm" [(ngModel)]="searchTerm" type="search" placeholder="What are you looking for..." aria-label="Search">
-        <!-- list="dataList" -->
-        <!-- <datalist id="dataList">
-          <option>
-            DarkBlue
-          </option>
-          <option>
-            DarkGreen
-          </option>
-          <option>
-            DarkOrange
-          </option>
-        </datalist> -->
         <button class="btn btn-outline-success" (click)="submitQuery()" type="submit">
             <fa-icon [icon]="faSearch"></fa-icon>
         </button>
@@ -32,18 +20,39 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/categories">Categories</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link">
-                <fa-icon style="margin-right: .2rem; vertical-align: center;" [icon]="faUser"></fa-icon>
-                LogIn
+
+          <li *ngIf="!logged" ngbDropdown class="nav-item dropdown">
+            <a id="navbarDropdown" ngbDropdownToggle role="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <fa-icon style="margin-right: .2rem; vertical-align: center;" [icon]="faUser"></fa-icon>
+              LogIn
             </a>
-          </li> -->
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <a routerLink="/login" ngbDropdownItem class="dropdown-item">Login</a>
+              <a routerLink="/register" ngbDropdownItem class="dropdown-item">Register</a>
+              <!-- <div class="dropdown-divider"></div>
+              <a ngbDropdownItem class="dropdown-item">You're not logged yet</a> -->
+            </div>
+          </li>
+          <li *ngIf="logged" ngbDropdown class="nav-item dropdown">
+            <a id="navbarDropdown" ngbDropdownToggle role="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <fa-icon style="margin-right: .2rem; vertical-align: center;" [icon]="faUserCheck"></fa-icon>
+              Profile
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <a routerLink="/my-profile" ngbDropdownItem class="dropdown-item">See your Profile</a>
+              <a (click)="logOut()" ngbDropdownItem class="dropdown-item">Log Out</a>
+              <div class="dropdown-divider"></div>
+              <a ngbDropdownItem id="dropdown-item-message" class="dropdown-item">
+                Hello, {{user1stName | titlecase}}!
+              </a>
+            </div>
+          </li>
+
           <li class="nav-item">
             <a id="cartIconlink" routerLink="/cart" class="nav-link cart-icon">
-              <span style="display: none;">cart</span>
               <fa-icon [icon]="faShoppingCart"></fa-icon>
-              <div *ngIf="itemsInCard >= 1" class="cart-counter">
-                  {{ itemsInCard! }}
+              <div *ngIf="itemsInCart >= 1" class="cart-counter">
+                {{ itemsInCart! }}
               </div>
             </a>
           </li>

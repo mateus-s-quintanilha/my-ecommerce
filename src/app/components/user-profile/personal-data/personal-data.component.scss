@@ -1,0 +1,137 @@
+.container {
+    padding-top: 2rem;
+}
+
+.content-header {
+    width: 30%;
+}
+
+.go-back fa-icon {
+    margin-right: .4rem;
+}
+.go-back {
+    cursor: pointer;    
+}
+.go-back h4, .content-header h3{
+    margin-top: .4rem;
+}
+
+.go-back:hover {
+    text-decoration: underline;
+}
+
+.content-header h3 {
+    border-left: 1px solid rgba(0, 0, 0, 0.651);
+    padding-left: 1.2rem;
+    white-space: nowrap;
+}
+.content-header h4 {
+    white-space: nowrap;
+}
+
+.content-wrapper{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    font-family: 'Merriweather', serif;
+    width: 100%;
+}
+
+.content-body {
+    width: 100%;
+}
+
+.body-info {
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .4rem;
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.body-header {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.section-placeholder {
+    font-size: .9rem;
+    word-spacing: 2px;
+    margin-left: .6rem;
+}
+
+.icon-wrapper {
+    margin-right: .6rem;
+}
+
+.section-data {
+    opacity: .7;
+    font-size: 1rem;
+    width: 50%;
+    letter-spacing: 1px;
+}
+
+.section-name, .section-email, .section-phone {
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+}
+
+.section-name, .section-email { 
+    border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+}
+
+fa-icon {
+    cursor: pointer;
+}
+
+.line-below {
+    position: absolute;
+    width: 4rem;
+    height: 5px;
+    background-color: rgb(35,159,115);
+    left: 50%;
+    top: 90%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+
+app-simple-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+@media (max-width: 992px) {
+    .body-info {
+        width: 80%;
+    }
+    .content-header {
+        width: 40%;
+    }
+}
+
+@media (max-width: 767px) {
+    .body-info {
+        width: 90%;
+    }
+    .section-data {
+       width: fit-content; 
+    }
+    .content-header {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .body-info {
+        width: 95%;
+    }
+    .content-header {
+        width: 60%;
+    }
+}

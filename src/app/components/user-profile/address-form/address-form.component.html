@@ -1,0 +1,224 @@
+<app-header></app-header>
+<div class="container">
+    <div class="content-header">
+        <h3>
+            {{title}}
+        </h3>
+        <span class="line-below"></span>
+    </div>
+    <div class="content-info">
+        <ngb-alert id="alert" type="success">You successfully added a new Address. Navigating to Addresses List...</ngb-alert>
+        <ngb-alert id="edit-alert" type="success">You successfully edited the Address. Navigating to Addresses List...</ngb-alert>
+        <form *ngIf="!editPage" (ngSubmit)="onSubmit(form)" #form="ngForm" class="form-row d-flex flex-column align-items-center">
+            <div class="form-group col-10 col-md-10">
+                <label for="name">Name</label>
+                <input readonly type="text" id="name" class="form-control" name="name" [(ngModel)]="userAddressData.name" placeholder="Name" required #name="ngModel">
+                <div *ngIf="!name.valid && name.touched" class="alert alert-danger">
+                    <strong>Name</strong> is required.
+                </div>
+            </div>
+            <br>
+            <div class="form-group col-10 col-md-10">
+                <label for="email">E-mail</label>
+                <input readonly type="email" id="email" class="form-control" name="email" [(ngModel)]="userAddressData.email" placeholder="E-mail" required #email="ngModel">
+                <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+                    <strong>E-mail</strong> is required.
+                </div>
+                
+            </div>
+            <br>
+            <div class="label col-md-10 d-flex justify-content-center align-items-center">
+                Where are you located?
+            </div>
+            <br>
+            <div class="form-group col-md-10 d-flex justify-content-evenly">
+                <div class="form-check form-check-inline">
+                    <input (click)="resetAddressSection(form)" class="form-check-input" required type="radio" id="usa" name="location" [(ngModel)]="userAddressData.location" #usa="ngModel" value="usa">
+                    <label class="form-check-label" for="usa">U.S.A. 🇺🇸</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input (click)="resetAddressSection(form)" class="form-check-input" required type="radio" id="br" name="location" [(ngModel)]="userAddressData.location" #br="ngModel" value="br">
+                    <label class="form-check-label" for="br">Brazil 🇧🇷</label>
+                </div>
+            </div>
+
+            <div style="width: 100%;" *ngIf="userAddressData.location == 'usa' ">
+                <div class="row justify-content-center">
+                    <div class="form-group col-10 col-md-4">
+                        <label for="zipCode">Zip Code</label>
+                        <input (blur)="getUSAZip(zip.value, form)" type="text" id="zip" class="form-control" name="zip" [(ngModel)]="userAddressData.zip" placeholder="Zip Code" required #zip="ngModel">
+                        <div id="zip-code-alert" class="alert alert-danger">
+                            <strong>Zip code</strong> is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-7 col-md-3">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userAddressData.city" placeholder="City" readonly #city="ngModel">
+                    </div>
+                    <div class="form-group col-3 col-md-3">
+                        <label for="state">State</label>
+                        <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userAddressData.state" placeholder="State" readonly #state="ngModel">
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <div class="form-group col-7 col-md-8 ">
+                        <label for="str">Street</label>
+                        <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userAddressData.str" placeholder="Street" required #str="ngModel">
+                        <div *ngIf="!str.valid && str.touched" class="alert alert-danger">
+                            <strong>Street</strong> is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-3 col-md-2 ">
+                        <label for="num">Number</label>
+                        <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userAddressData.num" placeholder="Number" required #num="ngModel">
+                        <div *ngIf="!num.valid && num.touched" class="alert alert-danger">
+                            <strong>Number</strong> is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="width: 100%;" *ngIf="userAddressData.location == 'br' ">
+                <div class="row justify-content-center"> 
+                    <div class="form-group col-10 col-md-4">
+                        <label for="zipCode">Zip Code (CEP)</label>
+                        <input (blur)="getBrazilZip(zip.value, form)" type="text" id="zip" class="form-control" name="zip" [(ngModel)]="userAddressData.zip" placeholder="Zip Code (CEP)" required #zip="ngModel">
+                        <div id="zip-code-alert" class="alert alert-danger">
+                            <strong>Zip code</strong> is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-7 col-md-3">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userAddressData.city" placeholder="City" readonly #city="ngModel">
+                    </div>
+                    <div class="form-group col-3 col-md-3">
+                        <label for="state">State</label>
+                        <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userAddressData.state" placeholder="State" readonly #state="ngModel">
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+
+                    <div class="form-group col-7 col-md-8 ">
+                        <label for="str">Street</label>
+                        <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userAddressData.str" placeholder="Street" readonly #str="ngModel">
+                    </div>
+
+                    <div class="form-group col-3 col-md-2">
+                        <label for="num">Number</label>
+                        <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userAddressData.num" placeholder="Number" required #num="ngModel">
+                        <div *ngIf="!num.valid && num.touched" class="alert alert-danger">
+                            <strong>Number</strong> is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+            <button [disabled]="!form.valid" type="submit" style="padding-top: .6rem; padding-bottom: .6rem; font-weight: 700; letter-spacing: 1px;" class="btn btn-dark col-8 col-md-8 rounded-pill">
+                Add It Now
+            </button>
+        </form>
+        <form *ngIf="editPage" (ngSubmit)="onSubmitEdit(formEdit)" #formEdit="ngForm" class="form-row d-flex flex-column align-items-center">
+            <div class="form-group col-10 col-md-10">
+                <label for="name">Name</label>
+                <input readonly type="text" id="name" class="form-control" name="name" [(ngModel)]="userEditAddressData.name" placeholder="Name" required #name="ngModel">
+            </div>
+            <br>
+            <div class="form-group col-10 col-md-10">
+                <label for="email">E-mail</label>
+                <input readonly type="email" id="email" class="form-control" name="email" [(ngModel)]="userEditAddressData.email" placeholder="E-mail" required #email="ngModel">
+                
+            </div>
+            <br>
+            <div style="width: 100%;" *ngIf="userEditAddressData.location == 'usa' ">
+                <div class="row justify-content-center">
+                    <div class="form-group col-10 col-md-4">
+                        <label for="zipCode">Zip Code</label>
+                        <input (blur)="getUSAZip(zip.value, formEdit)" type="text" id="zip" class="form-control" name="zip" [(ngModel)]="userEditAddressData.zip" placeholder="Zip Code" required #zip="ngModel">
+                        <div id="zip-code-alert" class="alert alert-danger">
+                            <strong>Zip code</strong> is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-7 col-md-3">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userEditAddressData.city" placeholder="City" readonly #city="ngModel">
+                    </div>
+                    <div class="form-group col-3 col-md-3">
+                        <label for="state">State</label>
+                        <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userEditAddressData.state" placeholder="State" readonly #state="ngModel">
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <div class="form-group col-7 col-md-8 ">
+                        <label for="str">Street</label>
+                        <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userEditAddressData.str" placeholder="Street" required #str="ngModel">
+                        <div *ngIf="!str.valid && str.touched" class="alert alert-danger">
+                            <strong>Street</strong> is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-3 col-md-2 ">
+                        <label for="num">Number</label>
+                        <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userEditAddressData.num" placeholder="Number" required #num="ngModel">
+                        <div *ngIf="!num.valid && num.touched" class="alert alert-danger">
+                            <strong>Number</strong> is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="width: 100%;" *ngIf="userEditAddressData.location == 'br' ">
+                <div class="row justify-content-center"> 
+                    <div class="form-group col-10 col-md-4">
+                        <label for="zipCode">Zip Code (CEP)</label>
+                        <input (blur)="getBrazilZip(zip.value, formEdit)" type="text" id="zip" class="form-control" name="zip" [(ngModel)]="userEditAddressData.zip" placeholder="Zip Code (CEP)" required #zip="ngModel">
+                        <div id="zip-code-alert" class="alert alert-danger">
+                            <strong>Zip code</strong> is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-7 col-md-3">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" name="city" [(ngModel)]="userEditAddressData.city" placeholder="City" readonly #city="ngModel">
+                    </div>
+                    <div class="form-group col-3 col-md-3">
+                        <label for="state">State</label>
+                        <input type="text" id="state" class="form-control" name="state" [(ngModel)]="userEditAddressData.state" placeholder="State" readonly #state="ngModel">
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+
+                    <div class="form-group col-7 col-md-8 ">
+                        <label for="str">Street</label>
+                        <input type="text" id="str" class="form-control" name="str" [(ngModel)]="userEditAddressData.str" placeholder="Street" readonly #str="ngModel">
+                    </div>
+
+                    <div class="form-group col-3 col-md-2">
+                        <label for="num">Number</label>
+                        <input type="text" id="num" class="form-control" name="num" [(ngModel)]="userEditAddressData.num" placeholder="Number" required #num="ngModel">
+                        <div *ngIf="!num.valid && num.touched" class="alert alert-danger">
+                            <strong>Number</strong> is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+            <button [disabled]="!formEdit.valid" type="submit" style="padding-top: .6rem; padding-bottom: .6rem; font-weight: 700; letter-spacing: 1px;" class="btn btn-dark col-8 col-md-8 rounded-pill">
+                Edit It Now
+            </button>
+        </form>
+    </div>
+    <div class="spinner"></div>
+</div>
+<app-simple-footer></app-simple-footer>

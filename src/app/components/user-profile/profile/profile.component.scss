@@ -1,0 +1,115 @@
+.container {
+    padding-bottom: 4rem;
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    font-family: 'Merriweather', serif;
+    width: 100%;
+}
+
+
+.main-container {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: .4rem;
+    width: 80%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.user-photo {
+    border: 2px solid rgb(35,159,115);
+    padding: .3rem;
+    border-radius: 50%;
+}
+
+.user-photo img{
+    width: 52px;
+    height: auto;
+}
+
+.user-name {
+    width: 80%;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.list-container {
+    margin-top: 3rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: .4rem;
+    width: 80%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.section-info {
+    width: 85%;
+}
+
+.section-info:not(.section-my-list > .section-info) {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+
+.section-adresses, .section-my-list {
+    padding-top: .7rem;
+}
+
+.section-my-data, .section-adresses, .section-my-list {
+    cursor: pointer;
+}
+
+.icon-wrapper {
+    width: 10%;
+}
+
+.section-title {
+    font-size: 1rem;
+}
+
+.section-sub-title p {
+    font-size: .85rem;   
+    opacity: .8;
+    transition: .5s;
+}
+
+.arrow {
+    transition: .3s;
+}
+
+
+.section-my-data:hover, .section-adresses:hover, .section-my-list:hover {
+    .arrow {
+        color: rgb(35,159,115);
+    }
+    .section-sub-title p {
+        text-decoration: underline;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .section-info {
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .list-container, .main-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .list-container, .main-container {
+        width: 95%;
+    }
+    .user-name {
+        font-size: 1.2rem;
+    }
+}

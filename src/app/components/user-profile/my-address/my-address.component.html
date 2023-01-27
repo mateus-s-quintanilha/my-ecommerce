@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="container">
+    <div class="content-header d-flex flex-row justify-content-evenly align-items-center">
+        <div routerLink="/my-profile" class="go-back d-flex flex-row align-items-center">
+            <fa-icon class="fa-xl" [icon]="faArrowAltCircleLeft"></fa-icon>
+            <h4>Go Back</h4>
+        </div> 
+        <h3>Addresses</h3>
+    </div>
+    <div class="content-wrapper">
+        <div class="content-body d-flex flex-column align-items-center">
+            <div class="body-header">
+                <h4>Your Addresses</h4>
+                <span class="line-below"></span>
+            </div>
+            <ngb-alert id="alert" type="success">You successfuly deleted the Address.</ngb-alert>
+            <div class="body-info">
+                <div *ngFor="let address of addressList" class="section-address d-flex flex-row justify-content-between">
+                    <div class="icon-wrapper">
+                        <fa-icon class="fa-2x" [icon]="faLocationDot"></fa-icon>
+                    </div>
+                    <div class="address-info d-flex flex-column">
+                        <div class="street">{{address.street | titlecase}} {{ address.number }} </div>
+                        <div class="zip">
+                            ZIP: {{ address.zip }} - {{ address.city }} - {{ address.location | uppercase }}
+                        </div>
+                        <div class="name">{{ userName | titlecase}}</div>
+                    </div>
+                    <div ngbDropdown>
+                        <div id="dropdownConfig" ngbDropdownToggle>
+                            <fa-icon [icon]="faEllipsis"></fa-icon>
+                        </div>
+                        <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+                            <button routerLink="/my-profile/my-address/edit/{{address.docID}}" class="d-flex flex-row justify-content-between" ngbDropdownItem>
+                                Edit
+                                <fa-icon [icon]="faPenToSquare"></fa-icon>
+                            </button>
+                            <button class="d-flex flex-row justify-content-between" (click)="removeAddress(address.docID)" ngbDropdownItem>
+                                Remove
+                            <fa-icon [icon]="faXmark"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="addressList.length <= 0" class="section-address not-found d-flex flex-row justify-content-center align-items-center">
+                    <div class="address-not-found-message d-flex flex-column justify-content-center align-items-center">
+                        <div class="icon-wrapper">
+                            <fa-icon class="fa-2x" [icon]="faLocationDot"></fa-icon>
+                        </div>
+                        <p>You do not have registered addresses yet.</p>
+                    </div>
+                </div>
+                <div routerLink="/my-profile/my-address/add" class="section-button d-flex justify-content-between">
+                    <div class="button-text">
+                        Add Address
+                    </div>
+                    <div class="icon-wrapper">
+                        <fa-icon [icon]="faAngleRight"></fa-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-simple-footer></app-simple-footer>

@@ -1,0 +1,31 @@
+#footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.copyright-content {
+    font-family: 'Merriweather', serif;
+    font-size: .9rem;
+    opacity: .8;
+    padding-top: 1rem;
+}
+
+#copyright-paragraph {
+color: #fff;
+}
+.copyright-content a {
+    text-decoration: none;
+    transition: .4s;
+    color: #fff;
+}
+.copyright-content a:hover {
+    text-decoration: underline;
+}
+
+@media(max-width: 500px) {
+    .copyright-content {
+        font-size: .8rem;
+    }
+}

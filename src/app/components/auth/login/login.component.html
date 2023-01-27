@@ -1,0 +1,42 @@
+<div class="all-content-wrapper">
+    <div id="dark-part" class="container-fluid bg-dark">
+        <div id="title-wrapper" class="d-flex align-items-center">
+            <div routerLink="/home" id="title">
+                Store<span style="font-weight: 700;"> <span style="color: rgb(254,231,18);">M</span> <span style="color: rgb(35,159,115);">Q</span> </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-wrapper d-flex flex-column justify-content-between">
+        <div class="wrapper-header">
+            <h4>LogIn</h4>
+            <span class="line-below"></span>
+        </div>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-row">
+            <!-- <br> -->
+            <div class="form-group col-md-12">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userLoginData.email" placeholder="Your E-mail" required #email="ngModel">
+                <!-- <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userData.email" placeholder="E-mail" required #email="ngModel"> -->
+                <!-- <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+                    <strong>E-mail</strong> is required.
+                </div> -->
+            </div>
+            <div class="form-group col-md-12">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" [(ngModel)]="userLoginData.password" placeholder="Your Password" required>
+                <!-- <div *ngIf="!email.valid && email.touched" class="alert alert-danger">
+                    <strong>E-mail</strong> is required.
+                </div> -->
+            </div>
+            <div class="row row-btn d-flex justify-content-center">
+                <button type="submit" style="font-weight: 700;" class="btn btn-success rounded-pill col-10">LogIn</button>
+            </div>
+            <hr>
+            <div class="login-link">
+                You don't have an account yet? <a routerLink="/register">Register here</a>
+            </div>
+        </form>
+    </div>
+</div>
+
