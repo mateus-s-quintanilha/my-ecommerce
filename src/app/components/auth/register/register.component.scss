@@ -92,3 +92,35 @@ hr {
 .login-link a {
     text-decoration: none;
 }
+
+
+
+
+@media (max-width: 600px) { 
+    .form-wrapper {
+        padding: 1rem;
+        top: 15%;
+        width: 400px;
+    
+    }
+}
+@media (max-width: 500px) { 
+    .form-wrapper {
+        padding: 1rem;
+        top: 18%;
+        width: 300px;
+    }
+    .form-group {
+        padding-top: 1rem;
+    }
+    .row-btn {
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 350px) { 
+    .form-wrapper {
+        width: 280px;
+    
+    }
+}
