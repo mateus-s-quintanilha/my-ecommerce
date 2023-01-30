@@ -116,11 +116,16 @@ hr {
     .row-btn {
         padding-top: 2rem;
     }
+    .login-link {
+        font-size: .7rem;
+    }
 }
 
 @media (max-width: 350px) { 
     .form-wrapper {
-        width: 280px;
-    
+        width: 280px;   
+    }
+    .login-link {
+        font-size: .6rem;
     }
 }
